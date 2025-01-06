@@ -16,7 +16,6 @@
   "homepage": "https://gitlab.com/kerahq/kerakit#readme",
 
   "dependencies": {
-    "rxdb": "^16.0.0",
     "jsdoc": "^4.0.4",
     "eslint": "^8.41.0",
     "eslint-config-google": "^0.14.0",
