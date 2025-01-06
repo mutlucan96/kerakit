@@ -1,0 +1,26 @@
+{
+  "name": "kerakit",
+  "version": "1.0.0",
+  "description": "A front-end library for Kera Apps",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mutlu Can Yilmaz",
+  "email": "mtlcnylmz@gmail.com",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://gitlab.com/kerahq/kerakit/issues"
+  },
+  "homepage": "https://gitlab.com/kerahq/kerakit#readme",
+
+  "dependencies": {
+    "rxdb": "^16.0.0",
+    "jsdoc": "^4.0.4",
+    "eslint": "^8.41.0",
+    "eslint-config-google": "^0.14.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}
