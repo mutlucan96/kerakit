@@ -22,31 +22,29 @@
  */
 
 'use strict';
-import * as message from 'message';
 
 /**
- * Global variable for KeraKit
- * @typeDef {Object} kerakit
+ * Global variables for KeraKit
+ * @typedef Kerakit
+ * @type {Object}
  * @property {string} version - KeraKit version
- * @property {boolean} isKeraEnv - Whether running in Kera environment
- * @property {Object} keraEnv - Properties of Kera environment
- * @property {string} keraEnv.type - Type of Kera environment
+ * @property {boolean} isKeraRuntime - Whether running in Kera environment
  */
+
+/** @type {Kerakit} */
 export const kerakit = {
   version: '0.1.0',
-  isKeraEnv: false,
-  keraEnv: {
-    type: null,
-  },
+  isKeraRuntime: false,
 };
+
 const onMessage = (event) => {
   if (event.source !== window) {
     return;
   }
 
-  if (event.data.type && (event.data.type === 'kera-env')) {
+  if (event.data.type && (event.data.type === 'kera-runtime')) {
     window.removeEventListener('message', onMessage);
-    message.init();
+    kerakit.isKeraRuntime = true;
   }
 };
 
