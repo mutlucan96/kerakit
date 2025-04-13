@@ -21,7 +21,7 @@
  * THE SOFTWARE.
  */
 
-'use strict';
+"use strict";
 
 /**
  * Global variables for KeraKit
@@ -33,7 +33,7 @@
 
 /** @type {Kerakit} */
 export const kerakit = {
-  version: '0.1.0',
+  version: "0.1.0",
   isKeraRuntime: false,
 };
 
@@ -42,10 +42,10 @@ const onMessage = (event) => {
     return;
   }
 
-  if (event.data.type && (event.data.type === 'kera-runtime')) {
-    window.removeEventListener('message', onMessage);
+  if (event.data.type && event.data.type === "kera-runtime") {
+    window.removeEventListener("message", onMessage);
     kerakit.isKeraRuntime = true;
   }
 };
 
-window.addEventListener('message', onMessage);
+window.addEventListener("message", onMessage);
