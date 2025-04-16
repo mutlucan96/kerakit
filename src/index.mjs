@@ -26,7 +26,7 @@
 /**
  * Global variables for KeraKit
  * @typedef Kerakit
- * @type {Object}
+ * @type {object}
  * @property {string} version - KeraKit version
  * @property {boolean} isKeraRuntime - Whether running in Kera environment
  */

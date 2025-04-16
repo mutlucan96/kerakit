@@ -4,16 +4,16 @@ import globals from "globals";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
+import jsdoc from "eslint-plugin-jsdoc";
 
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
-    plugins: { js },
-    extends: ["js/recommended"],
-  },
-  {
-    files: ["**/*.{js,mjs,cjs}"],
-    languageOptions: { globals: globals.browser },
+    plugins: { js, jsdoc },
+    extends: ["js/recommended", jsdoc.configs["flat/recommended"]],
+    rules: {
+      "jsdoc/require-jsdoc": "warn",
+    },
   },
   {
     files: ["**/*.json"],
@@ -44,5 +44,9 @@ export default defineConfig([
     plugins: { css },
     language: "css/css",
     extends: ["css/recommended"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: { globals: globals.browser },
   },
 ]);
