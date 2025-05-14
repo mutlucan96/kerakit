@@ -36,7 +36,7 @@
   "keywords": [],
   "author": "Mutlu Can Yilmaz",
   "email": "mtlcnylmz@gmail.com",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/kerahq/kerakit/issues"
   },

@@ -1,7 +1,7 @@
 /**
  * @file Runtime handler for KeraKit
  * @copyright (C) 2025 Mutlu Can Yilmaz
- * @license GPL-3.0-or-later
+ * @license MIT
  */
 import { kerakit } from "../main.mjs";
 
