@@ -4,12 +4,12 @@
  * @license GPL-3.0-or-later
  */
 
-import initRuntime from "../runtime/init.mjs";
+import initRuntime from "../runtime/index.mjs";
 /**
  *  Initialize message handler
  *  @returns {void}
  */
-export default function init() {
+export default function index() {
   window.addEventListener("message", onMessage);
 }
 
@@ -19,7 +19,7 @@ export default function init() {
 function onMessage(event) {
   if (event.source !== window) return;
   switch (event.data.type) {
-    case "init-runtime":
+    case "index-runtime":
       initRuntime(event.data.data);
       break;
   }

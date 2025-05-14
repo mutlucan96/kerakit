@@ -5,6 +5,6 @@
  */
 import { kerakit } from "../main.mjs";
 
-export default function init(data) {
+export default function index(data) {
   kerakit.isKeraRuntime = true;
 }
