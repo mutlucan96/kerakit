@@ -18,10 +18,10 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: {
-        index: resolve(__dirname, "src/index.mjs"),
-        message: resolve(__dirname, "src/message/index.mjs"),
-        runtime: resolve(__dirname, "src/runtime/index.mjs"),
-        components: resolve(__dirname, "src/components/index.mjs"),
+        index: resolve(__dirname, "src/kr-button.mjs"),
+        message: resolve(__dirname, "src/message/kr-button.mjs"),
+        runtime: resolve(__dirname, "src/runtime/kr-button.mjs"),
+        components: resolve(__dirname, "src/components/kr-button.mjs"),
       },
       name: "KeraKit",
       formats: ["es", "cjs"],
