@@ -29,11 +29,15 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
-  "keywords": [],
+  "keywords": [
+    "kera", "web-components"],
   "author": "Mutlu Can Yilmaz",
   "email": "mtlcnylmz@gmail.com",
   "license": "MIT",
