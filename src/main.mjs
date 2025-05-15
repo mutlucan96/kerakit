@@ -6,7 +6,7 @@
 
 "use strict";
 
-import initMessage from "src/message/index.mjs";
+import initMessage from "@/message/index.mjs";
 /**
  * Global variables for KeraKit
  * @typedef Kerakit
