@@ -1,16 +1,20 @@
 /**
- * A simple Kr button component.
- *
+ * @file A simple Kr button component.
+ * @module KeraKit/Components/Button
+ * @license MIT
+ * @copyright 2025 Mutlu Can Yilmaz
+ */
+
+import { LitElement, html, css } from "lit";
+
+/**
  * @element kr-button
  * @fires click - Dispatched when the button is clicked.
  * @slot - The default slot for the button's text or content.
  * @cssprop [--kr-button-background-color=#007bff] - Background color of the button.
  * @cssprop [--kr-button-text-color=white] - Text color of the button.
  * @cssprop [--kr-button-padding="0.5em 1em"] - Padding of the button.
- * @license MIT
- * @copyright 2025 Mutlu Can Yilmaz
  */
-import { LitElement, html, css } from "lit";
 
 export class KrButton extends LitElement {
   /**
