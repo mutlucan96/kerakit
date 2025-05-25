@@ -9,9 +9,9 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./message": {
-      "import": "./dist/message.mjs",
-      "require": "./dist/message.cjs"
+    "./core": {
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.cjs"
     },
     "./runtime": {
       "import": "./dist/runtime.mjs",

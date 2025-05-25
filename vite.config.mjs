@@ -44,6 +44,11 @@ export default defineConfig({
       },
     },
   },
+  define: {
+    __KERAKIT_VERSION__: JSON.stringify(
+      process.env.npm_package_version || "0.0.0-dev",
+    ),
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
