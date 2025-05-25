@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import initRuntime from "../runtime/index.mjs";
+import initRuntime from "../../runtime/index.mjs";
 /**
  *  Initialize message handler
  *  @returns {void}

@@ -19,7 +19,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.mjs"),
-        message: resolve(__dirname, "src/message/index.mjs"),
+        core: resolve(__dirname, "src/core/index.mjs"),
         runtime: resolve(__dirname, "src/runtime/index.mjs"),
         components: resolve(__dirname, "src/components/index.mjs"),
       },

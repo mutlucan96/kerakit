@@ -3,8 +3,8 @@
  * @module KeraKit
  */
 
-import message from "@/message/index.mjs";
+import core from "@/core/index.mjs";
 import runtime from "@/runtime/index.mjs";
 
-export { message, runtime };
-export default { message, runtime };
+export { core, runtime };
+export default { core, runtime };

@@ -25,8 +25,8 @@ export default defineConfig([
     settings: {
       "import/resolver": {
         alias: {
-          map: pathAliases, // Use the defined aliases
-          extensions: [".js", ".mjs", ".json"], // Files ESLint should look for with aliases
+          map: pathAliases,
+          extensions: [".js", ".mjs", ".json"],
         },
         node: {
           // Fallback to Node's default resolution
