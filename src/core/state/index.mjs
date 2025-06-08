@@ -48,3 +48,13 @@ export { getActiveTheme, setActiveTheme };
 
 // Settings exports
 export { getLanguage, getSetting, updateSettings };
+
+export default {
+  initializeKeraState,
+  isKeraStateInitialized,
+  getActiveTheme,
+  setActiveTheme,
+  getLanguage,
+  getSetting,
+  updateSettings,
+};

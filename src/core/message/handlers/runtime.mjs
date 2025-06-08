@@ -1,20 +1,58 @@
 /**
- * @file Handlers for KeraKit runtime messages
+ * @file Handlers for KeraKit runtime messages and detection initiation.
  * @copyright (C) 2025 Mutlu Can Yilmaz
  * @license MIT
  */
+/* global __KERAKIT_VERSION__ */
+import initializeKeraKitRuntime from "@/runtime/index.mjs";
+import {
+  setRuntimeInfo,
+  getRuntimeDetectionStatus,
+} from "@/core/state/runtime.mjs";
+import { sendMessage } from "../sender.mjs";
 
-import initializeKeraKitRuntime from "../../../runtime/index.mjs";
-import { setRuntimeInfo } from "../../state/runtime.mjs";
+/**
+ * Initiates the runtime detection process by probing the host environment.
+ * It sends a 'client-ready' message with version and config info, and sets a timeout.
+ * @param {object} [userConfig] - The initial user-provided configuration.
+ * @param {number} [timeout] - Milliseconds to wait for a response.
+ */
+export function initiateRuntimeDetection(userConfig = {}, timeout = 2000) {
+  if (getRuntimeDetectionStatus() !== "pending") {
+    console.log(
+      "KeraKit: Detection has already been attempted. Status:",
+      getRuntimeDetectionStatus(),
+    );
+    return;
+  }
+
+  console.log("KeraKit: Initiating runtime detection...");
+
+  const version =
+    typeof __KERAKIT_VERSION__ !== "undefined" ? __KERAKIT_VERSION__ : null;
+
+  sendMessage({
+    type: "client-ready",
+    payload: {
+      version: version,
+      config: userConfig,
+    },
+  });
+
+  setTimeout(() => {
+    if (getRuntimeDetectionStatus() === "pending") {
+      sendMessage({
+        type: "runtime-detection-failed",
+        payload: { reason: `Detection timed out after ${timeout}ms.` },
+      });
+    }
+  }, timeout);
+}
 
 /**
  * Handles the 'runtime-detected' message from the host.
  * Updates KeraKit's runtime state and then initializes KeraKit.
  * @param {object} payload - The data from the Kera runtime.
- * @param {string} payload.runtimeName - Name of the Kera runtime (e.g., "Kera Desktop").
- * @param {string} payload.runtimeVersion - Version of the Kera runtime.
- * @param {object} [payload.settings] - Initial settings from the runtime.
- * @param {string[]} [payload.capabilities] - List of capabilities of the runtime.
  */
 export function onRuntimeDetected(payload) {
   console.log("Message Handler: Kera Runtime detected via message:", payload);
@@ -30,12 +68,13 @@ export function onRuntimeDetected(payload) {
 }
 
 /**
- * Handles the 'runtime-detection-failed' message or timeout.
- * @param {object} [errorPayload] - Optional error information from message or timeout.
- * @param {string} [errorPayload.reason] - Reason for failure.
+ * Handles the 'runtime-detection-failed' message.
+ * @param {object} [payload] - Optional error information.
+ * @param {string} [payload.reason] - Reason for failure.
  */
-export function onRuntimeDetectionFailed(errorPayload) {
-  const reason = errorPayload?.reason || "No response or error from host.";
+export function onRuntimeDetectionFailed(payload) {
+  const reason =
+    payload?.reason || "An unspecified error occurred in the host.";
   console.warn("Message Handler: Kera Runtime detection failed:", reason);
   setRuntimeInfo({
     status: "failed",

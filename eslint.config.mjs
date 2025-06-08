@@ -36,6 +36,7 @@ export default defineConfig([
     },
     rules: {
       "jsdoc/require-jsdoc": "warn",
+      "jsdoc/require-property-description": "off",
       "import/no-unresolved": [
         "error",
         { commonjs: true, amd: true, caseSensitive: false },

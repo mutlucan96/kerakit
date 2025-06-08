@@ -5,25 +5,28 @@
  * @copyright 2025 Mutlu Can Yilmaz
  */
 import { applyGlobalStyles } from "./_css-updater.mjs";
+import { defaultConfig } from "../../config.mjs";
 
-// --- Default Theme Configuration ---
-const defaultThemeConfig = {
-  activeTheme: "basic",
-};
-
+// --- State ---
 let _state = {
-  ...defaultThemeConfig,
+  activeTheme: "basic",
+  ...defaultConfig.theme,
 };
 
 // --- Initialization ---
 /**
  * Initializes the theme state, merging user overrides with defaults.
- * @param {object} [userThemeConfig] - User-provided theme overrides.
+ * @param {import('../../config.mjs').KeraKitThemeConfig} [userThemeConfig] - User-provided theme overrides.
  */
 export function initThemeState(userThemeConfig = {}) {
   _state = {
-    ...defaultThemeConfig,
+    activeTheme: "basic",
+    ...defaultConfig.theme,
     ...userThemeConfig,
+    colors: {
+      ...defaultConfig.theme.colors,
+      ...(userThemeConfig.colors || {}),
+    },
   };
   applyGlobalStyles();
 }
@@ -32,6 +35,16 @@ export function initThemeState(userThemeConfig = {}) {
 /** @returns {string} The name of the currently active theme. */
 export function getActiveTheme() {
   return _state.activeTheme;
+}
+
+/** @returns {string} The current theme mode ('system', 'light', or 'dark'). */
+export function getThemeMode() {
+  return _state.mode;
+}
+
+/** @returns {object} The current theme colors. */
+export function getThemeColors() {
+  return { ..._state.colors };
 }
 
 // --- Actions ---
@@ -44,4 +57,26 @@ export function setActiveTheme(themeName) {
     _state.activeTheme = themeName;
     applyGlobalStyles();
   }
+}
+
+/**
+ * Sets the theme mode.
+ * @param {'system' | 'light' | 'dark'} mode - The theme mode to apply.
+ */
+export function setThemeMode(mode) {
+  if (["system", "light", "dark"].includes(mode) && _state.mode !== mode) {
+    _state.mode = mode;
+    applyGlobalStyles();
+    console.log(`KeraKit theme mode set to: ${mode}`);
+  }
+}
+
+/**
+ * Updates theme colors.
+ * @param {Partial<typeof _state.colors>} newColors - An object with color values to update.
+ */
+export function updateThemeColors(newColors) {
+  _state.colors = { ..._state.colors, ...newColors };
+  applyGlobalStyles();
+  console.log("KeraKit theme colors updated.");
 }

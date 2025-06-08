@@ -5,25 +5,26 @@
  * @copyright 2025 Mutlu Can Yilmaz
  */
 import { applyGlobalStyles } from "@/core/state/_css-updater.mjs";
+import { defaultConfig } from "../../config.mjs";
 
-// --- Default Settings Configuration ---
-const defaultSettingsConfig = {
-  language: "en",
-};
-
-let _state = {
-  ...defaultSettingsConfig,
-};
+// --- State ---
+// The initial state is now directly derived from the single source of truth.
+let _state = { ...defaultConfig };
 
 // --- Initialization ---
 /**
  * Initializes the general settings state, merging user overrides with defaults.
- * @param {object} [userSettingsConfig] - User-provided settings overrides.
+ * @param {import('../../config.mjs').KeraKitConfig} [userSettingsConfig] - User-provided settings overrides.
  */
 export function initSettingsState(userSettingsConfig = {}) {
+  // Merge user settings deeply into the default configuration.
   _state = {
-    ...defaultSettingsConfig,
+    ...defaultConfig,
     ...userSettingsConfig,
+    runtime: {
+      ...defaultConfig.runtime,
+      ...(userSettingsConfig.runtime || {}),
+    },
   };
 }
 
@@ -45,7 +46,7 @@ export function getSetting(key) {
 // --- Actions ---
 /**
  * Updates one or more general settings.
- * @param {Partial<typeof _state>} newSettings - An object containing settings to update.
+ * @param {Partial<import('../../config.mjs').KeraKitConfig>} newSettings - An object containing settings to update.
  */
 export function updateSettings(newSettings) {
   let changed = false;
@@ -54,7 +55,16 @@ export function updateSettings(newSettings) {
       Object.hasOwnProperty.call(newSettings, key) &&
       _state[key] !== newSettings[key]
     ) {
-      _state[key] = newSettings[key];
+      // Simple merge for nested objects like 'runtime'
+      if (
+        typeof newSettings[key] === "object" &&
+        newSettings[key] !== null &&
+        !Array.isArray(newSettings[key])
+      ) {
+        _state[key] = { ..._state[key], ...newSettings[key] };
+      } else {
+        _state[key] = newSettings[key];
+      }
       changed = true;
     }
   }
