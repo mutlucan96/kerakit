@@ -6,8 +6,6 @@
  */
 
 import { defaultConfig } from "./config.mjs";
-import { initSettingsState } from "./core/state/settings.mjs";
-import { initThemeState } from "./core/state/theme.mjs";
 import core from "./core/index.mjs";
 import runtime from "./runtime/index.mjs";
 
@@ -44,9 +42,7 @@ function init(userConfig = {}) {
   const config = mergeConfig(userConfig);
 
   // 1. Initialize all states with the final config
-  initSettingsState(config);
-  initThemeState(config.theme);
-
+  core.state.initializeKeraState(config);
   // 2. Initialize the message receiver to listen for all host messages
   if (core.message && core.message.initReceiver) {
     core.message.initReceiver();
@@ -80,4 +76,3 @@ function init(userConfig = {}) {
 }
 
 export { core, runtime, init };
-export default { core, runtime, init };

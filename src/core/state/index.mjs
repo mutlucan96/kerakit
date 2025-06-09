@@ -5,14 +5,8 @@
  * @license MIT
  * @copyright 2025 Mutlu Can Yilmaz
  */
-
-import { initThemeState, getActiveTheme, setActiveTheme } from "./theme.mjs";
-import {
-  initSettingsState,
-  getLanguage,
-  getSetting,
-  updateSettings,
-} from "./settings.mjs";
+import { initThemeState } from "@/core/state/theme.mjs";
+import { initSettingsState } from "@/core/state/settings.mjs";
 
 let _isKeraStateFullyInitialized = false;
 
@@ -35,26 +29,4 @@ export function initializeKeraState(userConfig = {}) {
   _isKeraStateFullyInitialized = true;
 }
 
-/**
- * Checks if the entire KeraKit state system has been initialized.
- * @returns {boolean} True if KeraKit state has been fully initialized.
- */
-export function isKeraStateInitialized() {
-  return _isKeraStateFullyInitialized;
-}
-
-// Theme exports
-export { getActiveTheme, setActiveTheme };
-
-// Settings exports
-export { getLanguage, getSetting, updateSettings };
-
-export default {
-  initializeKeraState,
-  isKeraStateInitialized,
-  getActiveTheme,
-  setActiveTheme,
-  getLanguage,
-  getSetting,
-  updateSettings,
-};
+export default { initializeKeraState };
