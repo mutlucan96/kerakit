@@ -1,0 +1,56 @@
+:root {
+  --app-bg: #ffffff;
+  --app-text: #333;
+  --app-heading-text: #111;
+  --card-bg: #f9f9f9;
+  --card-border: #eee;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --pre-bg: #eee;
+  --pre-text: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #181818;
+    --app-text: #e0e0e0;
+    --app-heading-text: #ffffff;
+    --card-bg: #2a2a2a;
+    --card-border: #444;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --pre-bg: #3c3c3c;
+    --pre-text: #e0e0e0;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  sans-serif;
+  padding: 20px;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1 {
+  color: var(--app-heading-text);
+}
+
+.component-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+.component-card h2 {
+  margin-top: 0;
+  color: var(--app-heading-text);
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+kr-button {
+  margin-top: 10px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kera Host Simulator</title>
+  <link rel="stylesheet" href="host.css" />
+</head>
+<body>
+<div class="app-container">
+  <header class="top-bar">
+    <label for="address-bar"></label><input
+      type="text"
+      id="address-bar"
+      value="/demo/?kera-runtime-installed=true"
+    />
+    <button id="refresh-button">Refresh</button>
+  </header>
+  <main class="main-content">
+    <iframe id="app-frame" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+  </main>
+</div>
+
+<host-panel id="host-panel"></host-panel>
+
+<script type="module" src="/host/main.js"></script>
+</body>
+</html>
