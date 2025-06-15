@@ -65,14 +65,14 @@ export class StatusDisplay extends LitElement {
 
   render() {
     return html`
+      <div>
+        <h2>KeraKit Detection Status</h2>
+        <pre>${this.detectionStatus}</pre>
+      </div>
       <div class="grid-container">
         <div class="card">
           <h2>KeraKit Runtime Info</h2>
           <pre>${JSON.stringify(this.runtimeInfo, null, 2)}</pre>
-        </div>
-        <div class="card">
-          <h2>KeraKit Detection Status</h2>
-          <pre>${this.detectionStatus}</pre>
         </div>
         <div class="card">
           <h2>Theme Info</h2>

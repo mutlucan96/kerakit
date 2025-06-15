@@ -38,7 +38,7 @@ export const defaultConfig = {
     mode: "system",
     colors: {
       primary: "#007bff",
-      secondary: "#6c757d",
+      secondary: "#21d07c",
       tertiary: "#f8f9fa",
     },
   },
