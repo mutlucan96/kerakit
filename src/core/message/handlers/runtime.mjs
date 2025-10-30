@@ -9,6 +9,7 @@ import {
   setRuntimeInfo,
   getRuntimeDetectionStatus,
 } from "@/core/state/runtime.mjs";
+import { updateSettings } from "@/core/state/settings.mjs";
 import { sendMessage } from "../sender.mjs";
 
 /**
@@ -56,6 +57,12 @@ export function initiateRuntimeDetection(userConfig = {}, timeout = 2000) {
  */
 export function onRuntimeDetected(payload) {
   console.log("Message Handler: Kera Runtime detected via message:", payload);
+  if (payload.settings) {
+    updateSettings(payload.settings);
+  }
+  if (payload.theme) {
+    updateSettings({ theme: payload.theme });
+  }
   setRuntimeInfo({
     status: "detected",
     runtimeName: payload.runtimeName,

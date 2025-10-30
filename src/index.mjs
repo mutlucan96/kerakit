@@ -25,7 +25,7 @@ function mergeConfig(userConfig) {
       ...(userConfig.theme || {}),
       colors: {
         ...defaultConfig.theme.colors,
-        ...user.config.theme?.colors,
+        ...userConfig.theme?.colors,
       },
     },
     runtime: {

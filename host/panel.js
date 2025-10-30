@@ -20,6 +20,7 @@ export class HostPanel extends LitElement {
     runtimeInfoPayload: { type: Object, state: true },
     hostStatus: { type: String },
     clientReadyPayload: { type: Object },
+    sentRuntimeInfo: { type: Object },
     _isPanelOpen: { type: Boolean, state: true },
   };
 
@@ -143,6 +144,7 @@ export class HostPanel extends LitElement {
     this._isPanelOpen = true;
     this.hostStatus = "Inactive";
     this.clientReadyPayload = null;
+    this.sentRuntimeInfo = null;
 
     this.runtimeExists = true;
     this.runtimeInstalled = true;
@@ -314,6 +316,15 @@ export class HostPanel extends LitElement {
               ${this.clientReadyPayload
                 ? JSON.stringify(this.clientReadyPayload, null, 2)
                 : "No message received."}
+            </pre
+            >
+          </div>
+          <div class="status-group">
+            <strong>Sent <code>runtime-detected</code> Payload:</strong>
+            <pre>
+              ${this.sentRuntimeInfo
+                ? JSON.stringify(this.sentRuntimeInfo, null, 2)
+                : "No message sent."}
             </pre
             >
           </div>

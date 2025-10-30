@@ -45,6 +45,7 @@ function handleClientMessage(event) {
           payload: runtimeInfo,
         });
         dom.hostPanel.hostStatus = "Sent 'runtime-detected' to client.";
+        dom.hostPanel.sentRuntimeInfo = runtimeInfo;
       }, 50);
     } else {
       dom.hostPanel.hostStatus = "Runtime does not exist. No message sent.";
@@ -62,6 +63,7 @@ function handleHostConfigChange(event) {
   currentHostConfig = event.detail;
   dom.hostPanel.hostStatus = "Config changed. Reloading client...";
   dom.hostPanel.clientReadyPayload = null;
+  dom.hostPanel.sentRuntimeInfo = null;
   reloadIframe(dom.appFrame, dom.addressBar, currentHostConfig);
 }
 

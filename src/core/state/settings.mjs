@@ -9,6 +9,7 @@
 
 import { applyGlobalStyles } from "./_css-updater.mjs";
 import { defaultConfig } from "../../config.mjs";
+import { setThemeMode, updateThemeColors } from "./theme.mjs";
 
 // --- State ---
 // The initial state is now directly derived from the single source of truth.
@@ -58,6 +59,17 @@ export function updateSettings(newSettings) {
       Object.hasOwnProperty.call(newSettings, key) &&
       _state[key] !== newSettings[key]
     ) {
+      if (key === 'theme' && typeof newSettings.theme === 'object') {
+        if (newSettings.theme.mode) {
+          setThemeMode(newSettings.theme.mode);
+        }
+        if (newSettings.theme.colors) {
+          updateThemeColors(newSettings.theme.colors);
+        }
+        changed = true;
+        continue;
+      }
+
       // Simple merge for nested objects like 'runtime'
       if (
         typeof newSettings[key] === "object" &&
