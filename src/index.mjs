@@ -5,14 +5,16 @@
  * @license MIT
  */
 
+/** @import { KeraKitConfig } from './config.mjs' */
+
 import { defaultConfig } from "./config.mjs";
 import core from "./core/index.mjs";
 import runtime from "./runtime/index.mjs";
 
 /**
  * Merges the user-provided config with the default config.
- * @param {import('./config.mjs').KeraKitConfig} userConfig - The user-provided configuration.
- * @returns {Required<import('./config.mjs').KeraKitConfig>} The merged configuration.
+ * @param {KeraKitConfig} userConfig - The user-provided configuration.
+ * @returns {Required<KeraKitConfig>} The merged configuration.
  */
 function mergeConfig(userConfig) {
   return {
@@ -23,7 +25,7 @@ function mergeConfig(userConfig) {
       ...(userConfig.theme || {}),
       colors: {
         ...defaultConfig.theme.colors,
-        ...userConfig.theme?.colors,
+        ...user.config.theme?.colors,
       },
     },
     runtime: {
@@ -36,7 +38,7 @@ function mergeConfig(userConfig) {
 /**
  * Initializes KeraKit with an optional configuration.
  * This is the main entry point for using the library.
- * @param {import('./config.mjs').KeraKitConfig} [userConfig] - Optional developer-provided configuration.
+ * @param {KeraKitConfig} [userConfig] - Optional developer-provided configuration.
  */
 function init(userConfig = {}) {
   const config = mergeConfig(userConfig);

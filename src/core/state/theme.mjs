@@ -4,6 +4,9 @@
  * @license MIT
  * @copyright 2025 Mutlu Can Yilmaz
  */
+
+/** @import { KeraKitThemeConfig } from '../../config.mjs' */
+
 import { applyGlobalStyles } from "./_css-updater.mjs";
 import { defaultConfig } from "../../config.mjs";
 
@@ -16,7 +19,7 @@ let _state = {
 // --- Initialization ---
 /**
  * Initializes the theme state, merging user overrides with defaults.
- * @param {import('../../config.mjs').KeraKitThemeConfig} [userThemeConfig] - User-provided theme overrides.
+ * @param {KeraKitThemeConfig} [userThemeConfig] - User-provided theme overrides.
  */
 export function initThemeState(userThemeConfig = {}) {
   _state = {

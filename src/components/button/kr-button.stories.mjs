@@ -1,12 +1,16 @@
 /**
- * @type {import('@storybook/web-components').Meta}
  * @license MIT
  * @copyright 2025 Mutlu Can Yilmaz
  */
 
+/** @typedef {import('@storybook/web-components').Meta} Meta */
+/** @typedef {import('@storybook/web-components').StoryObj} StoryObj */
+/** @typedef {import('lit').TemplateResult} TemplateResult */
+
 import { html } from "lit";
 import "./kr-button.mjs";
 
+/** @type {Meta} */
 export default {
   title: "Components/KrButton",
   component: "kr-button",
@@ -46,7 +50,7 @@ export default {
 /**
  * Renders the kr-button with provided arguments.
  * @param {object} args - The arguments for the component.
- * @returns {import('lit').TemplateResult}
+ * @returns {TemplateResult}
  */
 const Template = ({ type, disabled, slotContent, ...cssProps }) => {
   const styleString = Object.entries(cssProps)
@@ -65,7 +69,7 @@ const Template = ({ type, disabled, slotContent, ...cssProps }) => {
   `;
 };
 
-/** @type {import('@storybook/web-components').StoryObj} */
+/** @type {StoryObj} */
 export const Default = {
   args: {
     slotContent: "Default Button",
@@ -75,7 +79,7 @@ export const Default = {
   render: Template,
 };
 
-/** @type {import('@storybook/web-components').StoryObj} */
+/** @type {StoryObj} */
 export const Disabled = {
   args: {
     slotContent: "Disabled Button",
@@ -85,7 +89,7 @@ export const Disabled = {
   render: Template,
 };
 
-/** @type {import('@storybook/web-components').StoryObj} */
+/** @type {StoryObj} */
 export const CustomStyled = {
   args: {
     slotContent: "Styled Button",

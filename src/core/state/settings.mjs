@@ -4,6 +4,9 @@
  * @license MIT
  * @copyright 2025 Mutlu Can Yilmaz
  */
+
+/** @import { KeraKitConfig } from '../../config.mjs' */
+
 import { applyGlobalStyles } from "./_css-updater.mjs";
 import { defaultConfig } from "../../config.mjs";
 
@@ -14,7 +17,7 @@ let _state = { ...defaultConfig };
 // --- Initialization ---
 /**
  * Initializes the general settings state, merging user overrides with defaults.
- * @param {Required<import('./config.mjs').KeraKitConfig>} [userSettingsConfig] - User-provided settings overrides.
+ * @param {Required<KeraKitConfig>} [userSettingsConfig] - User-provided settings overrides.
  */
 export function initSettingsState(userSettingsConfig = {}) {
   // Merge user settings deeply into the default configuration.
@@ -46,7 +49,7 @@ export function getSetting(key) {
 // --- Actions ---
 /**
  * Updates one or more general settings.
- * @param {Partial<import('../../config.mjs').KeraKitConfig>} newSettings - An object containing settings to update.
+ * @param {Partial<KeraKitConfig>} newSettings - An object containing settings to update.
  */
 export function updateSettings(newSettings) {
   let changed = false;

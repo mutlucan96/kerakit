@@ -4,6 +4,9 @@
  * @copyright (C) 2025 Mutlu Can Yilmaz
  * @license MIT
  */
+
+/** @import { KeraTheme } from './generator.mjs' */
+
 import { Hct, argbFromHex } from "@material/material-color-utilities";
 
 /**
@@ -35,7 +38,7 @@ function generateSchemeCss(scheme) {
 
 /**
  * Generates the complete CSS for both light and dark themes.
- * @param {import('./generator.mjs').KeraTheme} theme - The theme object.
+ * @param {KeraTheme} theme - The theme object.
  * @returns {string} The complete CSS string.
  */
 export function generateThemeCss(theme) {
