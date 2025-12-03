@@ -1,0 +1,987 @@
+<!--suppress HtmlRequiredLangAttribute -->
+<html>
+<head>
+  <title data-i18n="settings">Settings</title>
+  <meta charset="utf-8">
+  <link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body class="kr-ui-style">
+<div id="container">
+  <div class="kr-tabs kr-tabs-v" id="tabs">
+    <div class="kr-tab" kr-target="network"><span class="mdi mdi-lan-connect"></span><span
+        data-i18n="network">Network</span></div>
+    <div class="kr-tab" kr-target="bluetooth"><span class="mdi mdi-bluetooth"></span><span data-i18n="bluetooth">Bluetooth</span>
+    </div>
+    <div class="kr-tab" kr-target="appearance"><span class="mdi mdi-palette"></span><span data-i18n="appearance">Appearance</span>
+    </div>
+    <div class="kr-tab" kr-target="search"><span class="mdi mdi-magnify"></span><span data-i18n="search">Search</span>
+    </div>
+    <div class="kr-tab" kr-target="sound"><span class="mdi mdi-volume-high"></span><span data-i18n="sound">Sound</span>
+    </div>
+    <div class="kr-tab" kr-target="display"><span class="mdi mdi-monitor"></span><span
+        data-i18n="display">Display</span></div>
+    <div class="kr-tab" kr-target="mouse"><span class="mdi mdi-mouse"></span><span
+        data-i18n="mouse">Mouse and Touchpad</span></div>
+    <div class="kr-tab" kr-target="power"><span class="mdi mdi-flash"></span><span data-i18n="power">Power</span></div>
+    <div class="kr-tab" kr-target="privacy"><span class="mdi mdi-lock"></span><span data-i18n="privacy">Privacy</span>
+    </div>
+    <div class="kr-tab" kr-target="apps"><span class="mdi mdi-apps"></span><span data-i18n="apps">Apps</span></div>
+    <div class="kr-tab" kr-target="default"><span class="mdi mdi-star"></span><span
+        data-i18n="default">Default Apps</span></div>
+    <div class="kr-tab" kr-target="notifications"><span class="mdi mdi-bell"></span><span data-i18n="notifications">Display</span>
+    </div>
+    <div class="kr-tab" kr-target="storage"><span class="mdi mdi-database"></span><span
+        data-i18n="storage">Storage</span></div>
+    <div class="kr-tab" kr-target="accounts"><span class="mdi mdi-account"></span><span
+        data-i18n="accounts">Accounts</span></div>
+    <div class="kr-tab" kr-target="datetime"><span class="mdi mdi-clock-outline"></span><span data-i18n="datetime">Date and Time</span>
+    </div>
+    <div class="kr-tab" kr-target="lang"><span class="mdi mdi-translate"></span><span data-i18n="lang">Language and Input</span>
+    </div>
+    <div class="kr-tab" kr-target="accessibility"><span class="mdi mdi-human"></span><span data-i18n="accessibility">Accessibility</span>
+    </div>
+    <div class="kr-tab" kr-target="about"><span class="mdi mdi-information"></span><span data-i18n="about">About</span>
+    </div>
+  </div>
+  <div class="kr-tab-contents" id="tab-contents">
+    <div class="kr-tab-content" id="network">
+      <div class="kr-tabs kr-tabs-h">
+        <div class="kr-tab kr-selected" kr-target="connection">Connection</div>
+        <div class="kr-tab" kr-target="data">Data</div>
+        <div class="kr-tab" kr-target="vpn">VPN</div>
+        <div class="kr-tab" kr-target="hotspot">Hotspot</div>
+      </div>
+      <div class="kr-tab-contents">
+        <div class="kr-tab-content kr-selected" id="connection">
+          <fieldset>
+            <legend>Wired</legend>
+            <button class="full-width">Add connection</button>
+          </fieldset>
+          <fieldset>
+            <legend>Wi-Fi</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="switch">Enabled</label>
+              <input checked class="kr-switch" id="switch" type="checkbox">
+            </div>
+            <div class="kr-button-group full-width">
+              <button class="grow flex-center">Known networks</button>
+              <button class="grow flex-center">Add connection</button>
+            </div>
+            <div class="flex-center">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-4"></span>
+              <div class="grow">
+                <p>Happiness <br><span id="connected">Connected</span></p>
+              </div>
+            </div>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-3"></span>
+              Leave me alone
+            </button>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-2"></span>
+              Mom, click here for internet
+            </button>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-2"></span>
+              FBI Surveillance Van
+            </button>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-2"></span>
+              Google Baloon
+            </button>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-1"></span>
+              Panic! At the Cisco
+            </button>
+            <button class="kr-button-text full-width wifiavailable">
+              <span class="wifiicon mdi tray-item mdi-wifi-strength-1"></span>
+              Lord Voldemodem
+            </button>
+          </fieldset>
+        </div>
+        <div class="kr-tab-content" id="data">
+          <div>
+            <label for="data-list"></label><select id="data-list">
+              <option>Happiness</option>
+              <option>LG Nexus 5</option>
+              <option>eduroam</option>
+            </select>
+          </div>
+          <fieldset>
+            <legend>Data Saver</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="datasaver">Disabled</label>
+              <input class="kr-switch" id="datasaver" type="checkbox">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Data Management</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="warning">Set data warning</label>
+              <input class="kr-switch" id="warning" type="checkbox">
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="limit">Set data limit</label>
+              <input class="kr-switch" id="limit" type="checkbox">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Data Usage</legend>
+            <label class="kr-checkbox">
+              <input checked type="checkbox">
+              <span>Merge download and upload</span>
+            </label>
+            <div class="flex-center">
+              <p class="grow">Total Usage</p>
+              <p class="larger-text">37.4 GB</p>
+            </div>
+            <div class="flex-center">
+              <p class="grow">Today's Usage</p>
+              <p class="larger-text">7.1 GB</p>
+            </div>
+            <button class="full-width">Application data usage</button>
+          </fieldset>
+          <fieldset>
+            <legend>Data Speeds</legend>
+            <div class="flex-center">
+              <p class="grow">Current Download</p>
+              <p class="larger-text">3.2 mbps (0.4 MB/s)</p>
+            </div>
+            <div class="flex-center">
+              <p class="grow">Current Upload</p>
+              <p class="larger-text">0 mbps (0 MB/s)</p>
+            </div>
+            <div class="flex-center">
+              <p class="grow">Maximum Download</p>
+              <p class="larger-text">99 mbps (12.3 MB/s)</p>
+            </div>
+            <div class="flex-center">
+              <p class="grow">Maximum Upload</p>
+              <p class="larger-text">7 mbps (0.9 MB/s)</p>
+            </div>
+          </fieldset>
+        </div>
+        <div class="kr-tab-content" id="vpn">
+          <fieldset>
+            <legend>VPN</legend>
+            <button class="full-width">Add connection</button>
+          </fieldset>
+        </div>
+        <div class="kr-tab-content" id="hotspot">
+          <fieldset>
+            <legend>Configuration</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="hotspot-sw">Disabled</label>
+              <label for="hotspot-sw"></label><input class="kr-switch" id="hotspot-sw" type="checkbox">
+            </div>
+            <div class="flex-center">
+              <p class="grow">Name:</p>
+              <input class="width50" type="text" value="Kera 71M">
+            </div>
+            <div class="flex-center">
+              <p class="grow">Password:</p>
+              <input class="width50" type="text" value="ORavinGEnDiRLeyO">
+            </div>
+            <div class="flex-center">
+              <p class="grow">Frequency:</p>
+              <label for="fq-list"></label><select class="width50" id="fq-list">
+                <option>Auto</option>
+                <option>2.4 GHz</option>
+                <option>5 GHz</option>
+              </select>
+            </div>
+            <div class="flex-center">
+              <p class="grow">Channel:</p>
+              <label for="ch-list"></label><select class="width50" id="ch-list">
+                <option>Auto</option>
+              </select>
+            </div>
+            <div>
+              <label class="kr-checkbox">
+                <input checked type="checkbox">
+                <span>Share Internet</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Connected devices</legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="kr-tab-content" id="bluetooth">
+      <fieldset>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="bluetooth-sw">Disabled</label>
+          <input class="kr-switch" id="bluetooth-sw" type="checkbox">
+        </div>
+      </fieldset>
+    </div>
+    <div class="kr-tab-content" id="appearance">
+      <div class="kr-tabs kr-tabs-h">
+        <div class="kr-tab kr-selected" data-i18n="wallpaper" kr-target="wallpaper">Wallpaper</div>
+        <div class="kr-tab" data-i18n="theme" kr-target="theme">Theme</div>
+        <div class="kr-tab" data-i18n="panels" kr-target="panels">Panels</div>
+      </div>
+      <div class="kr-tab-contents">
+        <div class="kr-tab-content kr-selected" id="wallpaper">
+          <div class="kr-tabs kr-tabs-h">
+            <div class="kr-tab kr-selected" data-i18n="image" kr-target="image">Image</div>
+            <div class="kr-tab" data-i18n="video" kr-target="video">Video</div>
+            <div class="kr-tab" data-i18n="web" kr-target="web">Live</div>
+          </div>
+          <label for="wallpaper-list"></label><select id="wallpaper-list" style="display: none">
+          <option data-i18n="image" value="image">Image</option>
+          <option data-i18n="video" value="video">Video</option>
+          <option data-i18n="web" value="web">Web</option>
+        </select>
+          <div id="wp-types">
+            <div class="hidden" id="wp-image">
+              <fieldset id="wp-image-settings">
+                <div id="image-menus">
+                  <label for="image-type-list" style="display: none"></label><select id="image-type-list">
+                  <option data-i18n="static" value="static">Static</option>
+                  <option data-i18n="dynamic" value="dynamic">Dynamic</option>
+                  <option data-i18n="slideshow" value="slideshow">Slideshow</option>
+                  <option data-i18n="pictureoftheday" value="pictureoftheday">Picture of the day</option>
+                  <option data-i18n="plaincolor" value="plaincolor">Plain Color</option>
+                </select>
+                  <label for="image-fit-list" style="display: none"></label><select id="image-fit-list">
+                  <option data-i18n="center-cropped" value="center-cropped">Center Cropped</option>
+                  <option data-i18n="centered" value="centered">Centered</option>
+                  <option data-i18n="tiled" value="tiled">Tiled</option>
+                </select>
+                </div>
+                <button class="kr-button-text full-width" id="wallpaper-more">
+                  <span class="mdi mdi-chevron-down"></span>
+                </button>
+                <div id="filters">
+                  <div id="brightness">
+                    <span data-i18n="brightness">Brightness:</span>
+                    <label for="brightness-slider"></label><input id="brightness-slider" list="tickmark" max="2" min="0"
+                                                                  step="0.1" type="range">
+                  </div>
+                  <div id="contrast">
+                    <span data-i18n="contrast">Contrast:</span>
+                    <label for="contrast-slider"></label><input id="contrast-slider" list="tickmark" max="2" min="0"
+                                                                step="0.1" type="range">
+                  </div>
+                  <div class="kr-switch-container">
+                    <label class="kr-switch-label" data-i18n="darkwp" for="darkwp-switch">Only apply brightness/contrast
+                      on dark mode</label>
+                    <input class="kr-switch" id="darkwp-switch" type="checkbox">
+                  </div>
+                  <div id="blur">
+                    <span data-i18n="blur">Blur:</span>
+                    <label for="blur-slider"></label><input id="blur-slider" max="20" min="0" step="1" type="range">
+                  </div>
+                  <div class="kr-switch-container">
+                    <label class="kr-switch-label" data-i18n="onlyblur" for="blur-switch">Only blur when focus is on a
+                      window</label>
+                    <input class="kr-switch" id="blur-switch" type="checkbox">
+                  </div>
+                  <datalist id="tickmark">
+                    <option value="1"></option>
+                  </datalist>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div id="image-types">
+                  <div class="hidden" id="static">
+                    <div class="source-buttons">
+                      <button id="file-static">
+                        <span class="mdi mdi-file-image"></span>
+                        <span data-i18n="file-static">Choose from your images</span>
+                      </button>
+                      <button id="url-static">
+                        <span class="mdi mdi-link"></span>
+                        <span data-i18n="url-static">Use URL of an image</span>
+                      </button>
+                      <button id="web-static">
+                        <span class="mdi mdi-search-web"></span>
+                        <span data-i18n="search-static">Search for wallpapers on the web</span>
+                      </button>
+                    </div>
+                    <div class="image-list" id="static-image-list">
+
+                    </div>
+                  </div>
+                  <div class="hidden" id="dynamic">
+                    <div class="source-buttons">
+                      <button id="file-dynamic">
+                        <span class="mdi mdi-file-image"></span>
+                        <span data-i18n="file-dynamic">Choose a HEIC file</span>
+                      </button>
+                      <button id="create-dynamic">
+                        <span class="mdi mdi-pencil"></span>
+                        <span data-i18n="create-dynamic">Create a dynamic wallpaper with your images</span>
+                      </button>
+                      <button id="web-dynamic">
+                        <span class="mdi mdi-search-web"></span>
+                        <span data-i18n="search-dynamic">Search for wallpapers on the web</span>
+                      </button>
+                    </div>
+                    <div id="simulator">
+                      <span data-i18n="preview-time">Preview by sun position:</span>
+                      <label for="simulator-slider"></label><input id="simulator-slider" max="10" min="0" step="1" type="range">
+                    </div>
+                    <div class="image-list" id="dynamic-image-list">
+                      <div style="background-image: url(../../resources/backgrounds/thumbnails/palms_oil.webp)"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden" id="slideshow">
+                  <label for="slide-source"></label><select class="full-width" id="slide-source">
+                    <option data-i18n="slide-pexels" value="pexels">Pexels</option>
+                    <option data-i18n="slide-local" value="local">Local images</option>
+                  </select>
+                  <label for="slide-interval"></label><select class="full-width" id="slide-interval">
+                    <option data-i18n="slide-1m" value="1m">Change every 1 minute</option>
+                  </select>
+                  <label for="slide-pexels-type"></label><select class="full-width" id="slide-pexels-type">
+                    <option data-i18n="" value="">Search keywords</option>
+                    <option data-i18n="" value="">Collections</option>
+                    <option data-i18n="" value="">Trending</option>
+                  </select>
+                  <label>
+                    <input class="full-width" type="text" value="Flower, Nature, Bicycle">
+                  </label>
+                </div>
+                <div class="hidden" id="pictureoftheday">
+                  <label for="potd-type"></label><select id="potd-type">
+                    <option data-i18n="" value="">Wikipedia</option>
+                    <option data-i18n="" value="">NASA</option>
+                    <option data-i18n="" value="">National Geographic</option>
+                    <option data-i18n="" value="">Bing</option>
+                  </select>
+                </div>
+              </fieldset>
+            </div>
+            <div id="wp-video">
+            </div>
+            <div id="wp-web">
+            </div>
+          </div>
+
+        </div>
+        <div class="kr-tab-content" id="theme">
+          <fieldset>
+            <legend data-i18n="theme-packs">Theme Packs</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="apps">Applications</p>
+              <label for="application-theme"></label><select class="width50" id="application-theme">
+              </select>
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="shell">Shell</p>
+              <label for="shell-theme"></label><select class="width50" id="shell-theme">
+              </select>
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="icons">Icons</p>
+              <label for="icon-theme"></label><select class="width50" id="icon-theme">
+              </select>
+            </div>
+            <button class="full-width" data-i18n="get-new-themes">Get new themes</button>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="dark">Dark Theme</legend>
+            <div class="flex-center">
+              <label for="dark-theme"></label><select class="full-width" id="dark-theme">
+              <option data-i18n="alwaysOn" value="always">Always on</option>
+              <option data-i18n="alwaysOff" value="never">Always off</option>
+              <option data-i18n="sunBased" value="sun">Based on sun</option>
+              <option data-i18n="timeBased" value="timeBased">Based on time</option>
+              <option data-i18n="ambientBased" value="ambient">Based on ambient light</option>
+              <option data-i18n="brightnessBased" value="brightness">Based on screen brightness</option>
+            </select>
+            </div>
+            <p>
+              <span class="mdi mdi-alert"></span>
+              No ambient sensor detected. The camera will be used to detect ambient light.
+            </p>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="style">Style</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" data-i18n="get-color-wallpaper" for="get-color-wallpaper">Adjust theme
+                color based on wallpaper</label>
+              <input class="kr-switch" id="get-color-wallpaper" type="checkbox">
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" data-i18n="app-specific-color" for="app-specific-color">Use specific colors
+                for each app instead of same ones for all</label>
+              <input class="kr-switch" id="app-specific-color" type="checkbox">
+            </div>
+            <div class="flex-center">
+              <span class="grow" data-i18n="blur">Blur</span>
+              <label for="ui-blur"></label><input class="width50" id="ui-blur" max="20" min="0" step="1" type="range">
+            </div>
+            <div class="flex-center">
+              <span class="grow" data-i18n="border">Border Radius</span>
+              <label for="ui-border"></label><input class="width50" id="ui-border" max="20" min="0" step="1" type="range">
+            </div>
+            <button class="full-width kr-dialog-trigger" data-i18n="color-schemes" kr-target="color-dialog">Color
+              Schemes
+            </button>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="animations">Animations</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="animation-style">Animation Style</p>
+              <label for="animation-style"></label><select class="width50" id="animation-style">
+              </select>
+            </div>
+            <div class="flex-center">
+              <span class="grow" data-i18n="animation-speed">Animation Speed</span>
+              <label for="animation-speed"></label><input class="width50" id="animation-speed" max="1000" min="0" step="10" type="range">
+            </div>
+          </fieldset>
+          <fieldset id="fonts">
+            <legend data-i18n="font">Font</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="general-font">General</p>
+              <label for="general-font"></label><select id="general-font"></select>
+              <label for="general-font-size"></label><input id="general-font-size" type="number">
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="general-font">Title</p>
+              <label for="title-font"></label><select id="title-font"></select>
+              <label for="title-font-size"></label><input id="title-font-size" type="number">
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="general-font">Document</p>
+              <label for="document-font"></label><select id="document-font"></select>
+              <label for="document-font-size"></label><input id="document-font-size" type="number">
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="general-font">Monospace</p>
+              <label for="mono-font"></label><select id="mono-font"></select>
+              <label for="mono-font-size"></label><input id="mono-font-size" type="number">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="performance">Reduce visual effects while...</legend>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="save-gpu-usage">a graphic intensive game or app is running</label>
+              <input class="kr-switch" id="save-gpu-usage" type="checkbox">
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="save-bat-usage">running on battery</label>
+              <input class="kr-switch" id="save-bat-usage" type="checkbox">
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" for="save-bat-low-usage">battery is low</label>
+              <input class="kr-switch" id="save-bat-low-usage" type="checkbox">
+            </div>
+          </fieldset>
+        </div>
+        <div class="kr-tab-content" id="panels">
+          <fieldset>
+            <legend data-i18n="side-panels">Side Panels</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="left-panel">Left Panel</p>
+              <label for="left-panel-visibility"></label><select class="width50" id="left-panel-visibility">
+                <option data-i18n="auto-hide" value="auto">Auto Hide</option>
+                <option data-i18n="always-show" value="alwaysShow">Always Show</option>
+              </select>
+            </div>
+            <div class="flex-center">
+              <p class="grow" data-i18n="right-panel">Right Panel</p>
+              <label for="right-panel-visibility"></label><select class="width50" id="right-panel-visibility">
+                <option data-i18n="auto-hide" value="auto">Auto Hide</option>
+                <option data-i18n="always-show" value="alwaysShow">Always Show</option>
+              </select>
+            </div>
+            <div class="flex-center">
+              <span class="grow" data-i18n="no-of-items">Number of items</span>
+              <label for="no-of-items"></label><input class="width50" id="no-of-items" max="20" min="2" step="1" type="range">
+            </div>
+            <div class="flex-center">
+              <span class="grow" data-i18n="icon-size">Icon size</span>
+              <label for="panel-icon-size"></label><input class="width50" id="panel-icon-size" max="128" min="16" step="2" type="range">
+            </div>
+            <button class="full-width" data-i18n="arrange-panel">Arrange panel items</button>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="top-panel">Top Panel</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="visibility">Visibility</p>
+              <label for="top-panel-visibility"></label><select class="width50" id="top-panel-visibility">
+                <option data-i18n="auto-hide" value="auto">Auto Hide</option>
+                <option data-i18n="always-show" value="alwaysShow">Always Show</option>
+              </select>
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" data-i18n="show-battery-percent" for="show-battery-percent">Show battery
+                percent</label>
+              <input class="kr-switch" id="show-battery-percent" type="checkbox">
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" data-i18n="show-weather" for="show-weather">Show weather</label>
+              <input class="kr-switch" id="show-weather" type="checkbox">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="bottom-panel">Bottom Panel</legend>
+            <div class="flex-center">
+              <p class="grow" data-i18n="visibility">Visibility</p>
+              <label for="bottom-panel-visibility"></label><select class="width50" id="bottom-panel-visibility">
+                <option data-i18n="auto-hide" value="auto">Auto Hide</option>
+                <option data-i18n="always-show" value="alwaysShow">Always Show</option>
+              </select>
+            </div>
+            <div class="kr-switch-container">
+              <label class="kr-switch-label" data-i18n="show-favorite" for="show-favorites">Show favorite apps</label>
+              <input class="kr-switch" id="show-favorites" type="checkbox">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="hotspots">Hotspots</legend>
+            <p data-i18n="hotspots-info">Hotspots are black areas on the edges of the screen. When a panel hides,
+              indicators appear for each panel item, makes it easy to know where is a panel item without showing the
+              panel. You can directly click on the indicator or swipe from it to open related item. Hotspots will be
+              hidden if a fullscreen game, media or specific app is focused.</p>
+            <div class="flex-center">
+              <span class="grow" data-i18n="width">Width</span>
+              <label for="hotspot-width"></label><input class="width50" id="hotspot-width" max="5" min="0" step="0.5" type="range">
+            </div>
+            <button class="full-width" data-i18n="hotspot-apps">Select apps to hide hotspots</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="kr-tab-content" id="search">
+      <fieldset>
+        <div class="flex-center">
+          <p class="grow">Web Search Provider:</p>
+          <label>
+            <select>
+              <option>Google</option>
+              <option>DuckDuckGo</option>
+              <option>Ecosia</option>
+              <option>Yahoo!</option>
+            </select>
+          </label>
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-retain">Retain previous results</label>
+          <input class="kr-switch" id="search-retain" type="checkbox">
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-web-autocomplete">Web search autocomplete</label>
+          <input class="kr-switch" id="search-web-autocomplete" type="checkbox">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Suggestions and History</legend>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-history">Recent searches</label>
+          <input checked class="kr-switch" id="search-history" type="checkbox">
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-web-history">Web search history</label>
+          <input checked class="kr-switch" id="search-web-history" type="checkbox">
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-usage">Usage based suggestions</label>
+          <input checked class="kr-switch" id="search-usage" type="checkbox">
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-time">Time based suggestions</label>
+          <input checked class="kr-switch" id="search-time" type="checkbox">
+        </div>
+        <div class="kr-switch-container">
+          <label class="kr-switch-label" for="search-routine">Routine based suggestions</label>
+          <input checked class="kr-switch" id="search-routine" type="checkbox">
+        </div>
+        <p>Prioritize results based on...</p>
+        <div>
+          <label class="kr-radio">
+            <input checked name="prio" type="radio">
+            <span>usage frequency</span>
+          </label>
+        </div>
+        <div>
+          <label class="kr-radio">
+            <input name="prio" type="radio">
+            <span>alpabetical match</span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Sources</legend>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Apps</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Shortcuts</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Actions</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Commands</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Files and Folders</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Browser Bookmarks</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Browser History</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Weather</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Time</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Calculator</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Calendar</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Contacts</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Phone</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Home Devices</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Calculator</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Dictionary</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Translate</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Spotify</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Help</p>
+            <div>
+              <button class="kr-button-text"><span class="mdi mdi-information"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-cog"></span></button>
+              <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+            </div>
+          </div>
+          <button class="kr-button-text full-width"><span class="mdi mdi-plus"></span></button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>External Search</legend>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Wikipedia</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Google Drive</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Google Images</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Google Scholar</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Google Maps</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">YouTube</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Spotify</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Twitter</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <div class="drag-size">
+          <div class="flex-center">
+            <span class="mdi mdi-drag-horizontal"></span>
+            <p class="grow">Reddit</p>
+            <button class="kr-button-text"><span class="mdi mdi-close"></span></button>
+          </div>
+        </div>
+        <button class="kr-button-text full-width"><span class="mdi mdi-plus"></span></button>
+      </fieldset>
+    </div>
+    <div class="kr-tab-content" id="display"></div>
+    <div class="kr-tab-content" id="sound"></div>
+    <div class="kr-tab-content" id="mouse"></div>
+    <div class="kr-tab-content" id="power"></div>
+    <div class="kr-tab-content" id="privacy"></div>
+    <div class="kr-tab-content" id="apps"></div>
+    <div class="kr-tab-content" id="default"></div>
+    <div class="kr-tab-content" id="notifications"></div>
+    <div class="kr-tab-content" id="storage"></div>
+    <div class="kr-tab-content" id="accounts"></div>
+    <div class="kr-tab-content" id="datetime"></div>
+    <div class="kr-tab-content" id="lang"></div>
+    <div class="kr-tab-content" id="accessibility"></div>
+    <div class="kr-tab-content" id="about"></div>
+  </div>
+</div>
+<div id="kr-dialogs">
+  <div class="kr-dialog" id="color-dialog">
+    <div class="flex-center">
+      <span class="grow" data-i18n="vibrant">Vibrant</span>
+      <label for="vibrant"></label><input id="vibrant" type="color">
+    </div>
+    <div class="flex-center">
+      <span class="grow" data-i18n="dark-vibrant">Dark Vibrant</span>
+      <label for="dark-vibrant"></label><input id="dark-vibrant" type="color">
+    </div>
+    <fieldset>
+      <legend data-i18n="light">Light Mode</legend>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-background">Shell Background</span>
+        <label for="shell-background"></label><input id="shell-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-background">Shell Border</span>
+        <label for="shell-border"></label><input id="shell-border" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-text">Shell Text</span>
+        <label for="shell-text"></label><input id="shell-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-background">Window Background</span>
+        <label for="window-background"></label><input id="window-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-background">Inactive Window Background</span>
+        <label for="inactive-window-background"></label><input id="inactive-window-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-title">Window Title</span>
+        <label for="window-title"></label><input id="window-title" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-title">Inactive Window Title</span>
+        <label for="inactive-window-title"></label><input id="inactive-window-title" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-text">Window Text</span>
+        <label for="window-text"></label><input id="window-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-text">Inactive Window Text</span>
+        <label for="inactive-window-text"></label><input id="inactive-window-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="general-background">General Background</span>
+        <label for="general-background"></label><input id="general-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="general-foreground">General Foreground</span>
+        <label for="general-foreground"></label><input id="general-foreground" type="color">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend data-i18n="dark">Dark Mode</legend>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-background">Shell Background</span>
+        <label for="dark-shell-background"></label><input id="dark-shell-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-background">Shell Border</span>
+        <label for="dark-shell-border"></label><input id="dark-shell-border" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="shell-text">Shell Text</span>
+        <label for="dark-shell-text"></label><input id="dark-shell-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-background">Window Background</span>
+        <label for="dark-window-background"></label><input id="dark-window-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-background">Inactive Window Background</span>
+        <label for="dark-inactive-window-background"></label><input id="dark-inactive-window-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-title">Window Title</span>
+        <label for="dark-window-title"></label><input id="dark-window-title" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-title">Inactive Window Title</span>
+        <label for="dark-inactive-window-title"></label><input id="dark-inactive-window-title" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="window-text">Window Text</span>
+        <label for="dark-window-text"></label><input id="dark-window-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="inactive-window-text">Inactive Window Text</span>
+        <label for="dark-inactive-window-text"></label><input id="dark-inactive-window-text" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="general-background">General Background</span>
+        <label for="dark-general-background"></label><input id="dark-general-background" type="color">
+      </div>
+      <div class="flex-center">
+        <span class="grow" data-i18n="general-foreground">General Foreground</span>
+        <label for="dark-general-foreground"></label><input id="dark-general-foreground" type="color">
+      </div>
+    </fieldset>
+  </div>
+</div>
+<script src="../../services/i18next.min.js"></script>
+<script src="../../services/i18nextHttpBackend.min.js"></script>
+<script src="../../services/i18nextXHRBackend.min.js"></script>
+<script src="../../services/loc-i18next.min.js"></script>
+<script defer src="../../api/kerapi.js" type="text/javascript"></script>
+<script defer src="index.js" type="text/javascript"></script>
+</body>
+</html>

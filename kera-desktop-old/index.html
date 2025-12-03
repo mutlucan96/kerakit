@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="">
+<base href="./">
+<head>
+  <title>Kera Desktop</title>
+  <meta charset="utf-8">
+  <meta content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+  <meta content="script-src 'self';" http-equiv="Content-Security-Policy"/>
+  <style>
+      @font-face {
+        font-family: "NanumBarunGothic";
+        src: url(fonts/NanumGothic/NanumGothic-Regular.ttf);
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Noto Sans";
+        src: url(fonts/NotoSans/NotoSans-Regular.ttf);
+      }
+
+      body {
+          background-color: black;
+          margin: 0;
+          cursor: default;
+      }
+
+      #desktop, #background, #startup {
+          height: 100%;
+          width: 100%;
+          contain: strict;
+      }
+
+      #startup-text {
+          color: gray;
+          font-size: 10em;
+          letter-spacing: .2cm;
+          font-family: NanumBarunGothic, sans-serif;
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+      }
+
+      #startup {
+        z-index: 99999;
+        background-color: black;
+        cursor: none;
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+
+      #desktop {
+        position: fixed;
+      }
+  </style>
+  <link href="styles/Kera Basic/shell/style.css" rel="stylesheet">
+  <link href="styles/Kera Basic/animation/style.css" rel="stylesheet">
+  <link href="resources/icons/Kera/index.css" rel="stylesheet">
+  <link href="api/css/Kera%20Basic/index.css" rel="stylesheet">
+  <link href="services/overlayscrollbars/css/OverlayScrollbars.min.css" rel="stylesheet">
+  <link id="kr-css-shell" rel="stylesheet">
+  <link id="kr-css-animation" rel="stylesheet">
+</head>
+
+<body class="kr-ui-style no-i18n">
+<div id="desktop-container">
+  <div id="startup">
+    <div id="startup-text">
+      <span id="k">K</span><span id="e">e</span><span id="r">r</span><span
+        id="a">a</span>
+    </div>
+  </div>
+
+  <!-- Hotspots are the edges of screen. -->
+  <div class="hotspot" id="top-hotspot">
+    <div class="hs-area hidden" id="hsa-t"></div>
+  </div>
+  <div class="hotspot" id="left-hotspot">
+    <div class="hs-area hidden" id="hsa-l"></div>
+  </div>
+  <div class="hotspot" id="right-hotspot">
+    <div class="hs-area hidden" id="hsa-r"></div>
+  </div>
+
+  <div class="hotspot" id="bottom-hotspot">
+    <div class="hs-area hidden" id="hsa-b">
+      <div id="hsa-b-favorites"></div>
+      <div id="hsa-b-desktops">
+        <div class="hsa-b-desktop" id="hs-desktop1"></div>
+      </div>
+      <div class="hsi-b hidden" id="hsi-b-new-desktop"></div>
+    </div>
+  </div>
+
+  <div class="hidden" id="system-menus">
+    <div id="system-menu-right">
+      <button class="kr-button-text" id="sm-network">
+        <span class="mdi mdi-wifi-strength-4"></span>
+      </button>
+      <button class="kr-button-text" id="sm-bluetooth">
+        <span class="mdi mdi-bluetooth"></span>
+      </button>
+      <button class="kr-button-text" id="sm-dont-disturb">
+        <span class="mdi mdi-minus-circle"></span>
+      </button>
+      <button class="kr-button-text" id="sm-night">
+        <span class="mdi mdi-brightness-3"></span>
+      </button>
+      <button class="kr-button-text" id="sm-power-save">
+        <span class="mdi mdi-battery-plus"></span>
+      </button>
+      <button class="kr-button-text" id="sm-settings">
+        <span class="mdi mdi-cog"></span>
+      </button>
+      <button class="kr-button-text" id="sm-user">
+        <span class="mdi mdi-account"></span>
+      </button>
+      <button class="kr-button-text" id="sm-power">
+        <span class="mdi mdi-power"></span>
+      </button>
+    </div>
+    <div id="system-menu-top">
+      <div id="sm-information">
+        <span id="sm-date"></span>
+        <span id="sm-battery"></span>
+      </div>
+      <div id="sm-volume">
+        <span class="mdi mdi-volume-high"></span>
+        <label for="sm-volume-slider"></label><input id="sm-volume-slider" type="range">
+      </div>
+      <div id="sm-brightness">
+        <span class="mdi mdi-brightness-7"></span>
+        <label for="sm-brightness-slider"></label><input id="sm-brightness-slider" type="range">
+      </div>
+    </div>
+  </div>
+
+  <div id="search">
+    <div id="search-container">
+      <div id="searchbar">
+        <span class="mdi mdi-magnify"></span>
+        <label for="search-input"></label><input id="search-input" type="text">
+        <button class="kr-button-text" id="search-clear"><span class="mdi mdi-keyboard-backspace"
+                                                               data-i18n="[title]text.clear"></span></button>
+        <button class="kr-button-text" id="search-close"><span class="mdi mdi-close"
+                                                               data-i18n="[title]window.close"></span></button>
+      </div>
+      <div class="hidden" id="search-results" tabindex="0"></div>
+      <div id="search-suggestions" tabindex="0">
+        <a data-text="love in spanish" data-type="web">
+          <span class="mdi mdi-translate" style="color: #008bc7"></span>
+          <p>love in spanish</p>
+          <div class="result">
+            <p>el amor</p>
+          </div>
+        </a>
+        <a data-text="why is the sky not blue anymore" data-type="web">
+          <span class="mdi mdi-magnify" style="color: #0046c7"></span>
+          <p>why is the sky not blue anymore</p>
+        </a>
+        <a data-text="32 inch to cm" data-type="web">
+          <span class="mdi mdi-ruler" style="color: #7e5622"></span>
+          <p>32 inch to cm</p>
+          <div class="result">
+            <p>81.28 cm</p>
+          </div>
+        </a>
+        <a data-name="com.kera.browser" data-shortcut="incognito" data-type="shortcut">
+          <img alt="" src="apps/com.kera.browser/icon.png">
+          <p>Browser <span class="mdi mdi-chevron-right"></span> New Incognito Window</p>
+        </a>
+        <a data-type="switch">
+          <span class="mdi mdi-lightbulb" style="color: #d5c200"></span>
+          <p>Floor Lamp</p>
+          <div class="result">
+            <div class="kr-switch-container">
+              <label for="switch"></label><input class="kr-switch" id="switch" type="checkbox">
+            </div>
+          </div>
+        </a>
+        <a data-name="system" data-shortcut="closeall" data-type="shortcut">
+          <span class="mdi mdi-cog" style="color: #3b4a67"></span>
+          <p>Close all apps on this desktop</p>
+        </a>
+        <a data-name="com.kera.settings" data-shortcut="appearance" data-type="shortcut">
+          <img alt="" src="apps/com.kera.settings/icon.png">
+          <p>Settings <span class="mdi mdi-chevron-right"></span> Appearance</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="applications"></div>
+
+  <div class="mr hidden" id="desktop" name="background">
+    <webview id="background" partition="persist:trusted"></webview>
+    <div class="kr-menu-trigger kr-menu-pos-pointer focused" id="desktop-placeholder" kr-target="desktop-menu"></div>
+  </div>
+
+  <div id="move-action-area">
+    <div id="move-indicator"></div>
+  </div>
+
+  <div class="hidden" data-i18n="[title]newColumn" id="new-column">
+    <img class="kr-ic_new_column_24px">
+  </div>
+
+  <div class="hidden" id="top-area">
+    <div id="notifications"></div>
+    <div class="kr-d-border-color" id="system-tray">
+      <span class="mdi tray-item" id="network"></span>
+      <span class="mdi tray-item" id="battery"></span>
+      <span class="tray-item" id="clock"></span>
+    </div>
+  </div>
+
+  <div id="panels">
+    <div class="hidden" data-i18n="[aria-label]leftpanel" id="left-panel">
+      <div class="panel-container panel-content" id="left-panel-container">
+        <div class="panel-item-content" id="startitem-content">
+          <div class="placeholder" id="left-ph"></div>
+        </div>
+        <ul class="panel-icons" id="starter-content"></ul>
+      </div>
+    </div>
+
+
+    <div class="hidden" data-i18n="[aria-label]leftpanel" id="right-panel">
+      <div class="panel-container panel-content" id="right-panel-container">
+        <ul class="panel-icons" id="panelapp-icons"></ul>
+        <div class="panel-item-content" id="panelapp-content">
+          <div class="placeholder" id="right-ph"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden" id="bottom-area">
+    <div id="favorites"></div>
+    <div class="hidden" id="taskbar">
+      <div class="taskbar-desktop" id="desktop1"></div>
+    </div>
+    <div class="hidden" data-i18n="[title]newDesktop" id="new-desktop">
+      <span class="mdi mdi-plus"></span>
+    </div>
+  </div>
+  <div class="panel-ph" id="left-panel-ph"></div>
+  <div class="panel-ph" id="right-panel-ph"></div>
+  <div class="panel-ph" id="top-panel-ph"></div>
+  <div class="panel-ph" id="bottom-panel-ph"></div>
+  <div class="bottom-scroll" id="bottom-scroll-left"></div>
+  <div class="bottom-scroll" id="bottom-scroll-right"></div>
+  <div id="kr-menus">
+    <ul class="kr-menu" id="desktop-menu">
+      <li class="kr-menu-item" id="dm-settings">
+        <span class="mdi mdi-cog"></span>
+        <p data-i18n="settings"></p>
+      </li>
+      <li class="kr-menu-item" id="dm-appearance">
+        <span class="mdi mdi-palette"></span>
+        <p data-i18n="appearance"></p>
+      </li>
+      <li class="kr-menu-item" id="dm-feedback">
+        <span class="mdi mdi-comment-outline"></span>
+        <p data-i18n="feedback"></p>
+      </li>
+      <li class="kr-menu-item kr-submenu-trigger" id="dm-rooms">
+        <span class="mdi mdi-rhombus-split-outline"></span>
+        <p data-i18n="rooms"></p>
+        <ul class="kr-menu kr-submenu">
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-all-inclusive"></span>
+            <p>Common</p>
+          </li>
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-notebook"></span>
+            <p>Study</p>
+          </li>
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-briefcase"></span>
+            <p>Work</p>
+          </li>
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-pencil-ruler"></span>
+            <p>Planing</p>
+          </li>
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-popcorn"></span>
+            <p>Theatre</p>
+          </li>
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-gamepad"></span>
+            <p>Gaming</p>
+          </li>
+        </ul>
+      </li>
+      <li class="kr-menu-item" id="dm-search">
+        <span class="mdi mdi-magnify"></span>
+        <p data-i18n="search"></p>
+      </li>
+      <li class="kr-menu-item" id="dm-help">
+        <span class="mdi mdi-help"></span>
+        <p data-i18n="help"></p>
+      </li>
+      <li class="kr-menu-item" id="dm-lock">
+        <span class="mdi mdi-lock"></span>
+        <p data-i18n="lock"></p>
+      </li>
+      <li class="kr-submenu-trigger kr-menu-item" id="dm-user">
+        <span class="mdi mdi-account"></span>
+        <p data-i18n="user"></p>
+        <ul class="kr-menu kr-submenu">
+          <li class="kr-menu-item" id="dm-signout">
+            <span class="mdi mdi-logout"></span>
+            <p data-i18n="signout"></p>
+          </li>
+          <li class="kr-menu-item" id="dm-switch-user">
+            <span class="mdi mdi-account-switch"></span>
+            <p data-i18n="switch-user"></p>
+          </li>
+          <li class="kr-menu-item" id="dm-user-settings">
+            <span class="mdi mdi-account-cog"></span>
+            <p data-i18n="settings"></p>
+          </li>
+        </ul>
+      </li>
+      <li class="kr-menu-item" id="dm-exit">
+        <span class="mdi mdi-exit-run"></span>
+        <p>Exit</p>
+      </li>
+      <!--<li class="kr-submenu-trigger kr-menu-item" id="power">
+        <span class="mdi mdi-power-settings"></span>
+        <p data-i18n="power"></p>
+        <ul class="kr-menu kr-submenu">
+          <li class="kr-menu-item" id="dm-poweroff">
+            <span class="mdi mdi-power"></span>
+            <p data-i18n="poweroff"></p>
+          </li>
+          <li class="kr-menu-item" id="dm-reboot">
+            <span class="mdi mdi-restart"></span>
+            <p data-i18n="reboot"></p>
+          </li>
+          <li class="kr-menu-item" id="dm-sleep">
+            <span class="mdi mdi-power-sleep"></span>
+            <p data-i18n="sleep"></p>
+          </li>
+        </ul>
+      </li>-->
+    </ul>
+    <ul class="kr-menu" id="window-menu">
+      <li class="kr-menu-item" id="w-back">
+        <span class="mdi mdi-arrow-left"></span>
+        <p data-i18n="browser.back"></p>
+      </li>
+      <li class="kr-menu-item" id="w-forward">
+        <span class="mdi mdi-arrow-right"></span>
+        <p data-i18n="browser.forward"></p>
+      </li>
+      <li class="kr-menu-item" id="w-reload">
+        <span class="mdi mdi-refresh"></span>
+        <p data-i18n="browser.reload"></p>
+      </li>
+      <li class="kr-menu-item" id="w-find">
+        <span class="mdi mdi-file-find"></span>
+        <p data-i18n="document.find"></p>
+      </li>
+      <li class="kr-menu-item" id="w-print">
+        <span class="mdi mdi-printer"></span>
+        <p data-i18n="document.print"></p>
+      </li>
+      <li class="kr-submenu-trigger kr-menu-item" id="w-zoom">
+        <span class="mdi mdi-magnify"></span>
+        <p data-i18n="document.zoom"></p>
+        <ul class="kr-menu kr-submenu">
+          <li class="kr-menu-item" id="w-zoom-out" kr-stay>
+            <span class="mdi mdi-magnify-minus"></span>
+            <p data-i18n="document.zoom-out"></p>
+          </li>
+          <li class="kr-menu-item" id="w-zoom-reset" kr-stay>
+            <span class="mdi mdi-magnify-close"></span>
+            <p data-i18n="document.zoom-reset"></p>
+          </li>
+          <li class="kr-menu-item" id="w-zoom-in" kr-stay>
+            <span class="mdi mdi-magnify-plus"></span>
+            <p data-i18n="document.zoom-in"></p>
+          </li>
+        </ul>
+      </li>
+      <li class="kr-menu-item kr-menu-check" id="w-always-top">
+        <span class="mdi mdi-pin"></span>
+        <p data-i18n="window.always-top"></p>
+        <label>
+          <input type="checkbox"/>
+        </label>
+      </li>
+      <li class="kr-menu-item kr-menu-check" id="w-every-desktop">
+        <span class="mdi mdi-eye"></span>
+        <p data-i18n="window.every-desktop"></p>
+        <label>
+          <input type="checkbox"/>
+        </label>
+      </li>
+      <li class="kr-submenu-trigger kr-menu-item" id="w-split">
+        <span class="mdi mdi-view-compact"></span>
+        <p data-i18n="window.split"></p>
+        <ul class="kr-menu kr-submenu">
+          <li class="kr-menu-item" id="w-split-top-left">
+            <span class="mdi mdi-arrow-top-left"></span>
+            <p data-i18n="top-left"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-top">
+            <span class="mdi mdi-arrow-up"></span>
+            <p data-i18n="top"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-top-right">
+            <span class="mdi mdi-arrow-top-right"></span>
+            <p data-i18n="top-right"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-left">
+            <span class="mdi mdi-arrow-left"></span>
+            <p data-i18n="left"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-middle">
+            <span class="mdi mdi-view-column"></span>
+            <p data-i18n="middle"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-right">
+            <span class="mdi mdi-arrow-right"></span>
+            <p data-i18n="right"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-bottom-left">
+            <span class="mdi mdi-arrow-bottom-left"></span>
+            <p data-i18n="bottom-left"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-bottom">
+            <span class="mdi mdi-arrow-down"></span>
+            <p data-i18n="bottom"></p>
+          </li>
+          <li class="kr-menu-item" id="w-split-bottom-right">
+            <span class="mdi mdi-arrow-bottom-right"></span>
+            <p data-i18n="bottom-right"></p>
+          </li>
+        </ul>
+      </li>
+      <li class="kr-menu-item" id="w-share">
+        <span class="mdi mdi-share"></span>
+        <p data-i18n="share"></p>
+      </li>
+      <li class="kr-menu-item" id="w-close">
+        <span class="mdi mdi-close"></span>
+        <p data-i18n="window.close"></p>
+      </li>
+      <li class="kr-menu-item" id="w-app-info">
+        <span class="mdi mdi-information"></span>
+        <p data-i18n="app-info"></p>
+      </li>
+    </ul>
+  </div>
+</div>
+<script defer id="kerapi" src="api/kerapi.js"></script>
+<script src="services/overlayscrollbars/js/OverlayScrollbars.min.js"></script>
+<script src="services/vibrant.worker.min.js"></script>
+<script src="services/hammer.min.js"></script>
+<script src="services/i18next.min.js"></script>
+<script src="services/i18nextHttpBackend.min.js"></script>
+<script src="services/i18nextXHRBackend.min.js"></script>
+<script src="services/loc-i18next.min.js"></script>
+<script src="services/index.mjs" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.kr-w {
+    border-radius: var(--kr-border-radius);
+}
+
+.kr-wb {
+    border-radius: var(--kr-border-radius);
+}
+
+.kr-appmenu-item {
+    border-radius: var(--kr-border-radius);
+}
+
+.kr-w-title, .kr-appmenus {
+    -webkit-mask-image: linear-gradient(to right, rgb(0 0 0 / 100%) 90%, rgb(0 0 0 / 0%));
+}

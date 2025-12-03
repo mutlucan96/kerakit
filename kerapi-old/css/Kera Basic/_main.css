@@ -1,0 +1,208 @@
+/**
+ * @license
+ * Copyright 2020 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url("fonts/NotoSans/NotoSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("fonts/PT_Sans/PTSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Merriweather Sans";
+  src: url("fonts/MerriweatherSans/MerriweatherSans-Regular.ttf");
+}
+
+:root {
+  --kr-animation-duration: 300ms;
+  --kr-vibrant: #c9c9c9;
+  --kr-dark-vibrant: #898989;
+  --kr-window-background: rgb(230 230 230 / 90%);
+  --kr-window-background-blur: rgb(230 230 230 / 90%);
+  --kr-window-title: rgb(0 0 0 / 90%);
+  --kr-window-title-blur: rgb(0 0 0 / 90%);
+  --kr-window-text: rgb(0 0 0 / 90%);
+  --kr-window-text-blur: rgb(0 0 0 / 90%);
+  --kr-window-shadow: 0 6px 50px 0 rgb(0 0 0 / 60%);
+  --kr-inactive-window-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+  --kr-window-shadow-blur: 0 1px 3px rgb(0 0 0 / 80%);
+  --kr-general-background: rgb(230 230 230);
+  --kr-general-foreground: rgb(100 100 100);
+  --kr-general-text: rgb(0 0 0 / 80%);
+  --kr-dark-window-background: rgb(20 20 20 / 90%);
+  --kr-dark-window-background-blur: rgb(20 20 20 / 90%);
+  --kr-dark-window-title: rgb(255 255 255 / 80%);
+  --kr-dark-window-title-blur: rgb(0 0 0 / 90%);
+  --kr-dark-window-text: rgb(255 255 255 / 70%);
+  --kr-dark-window-text-blur: rgb(255 255 255 / 70%);
+  --kr-dark-general-background: #393939;
+  --kr-dark-general-foreground: rgb(50 50 50 / 50%);
+  --kr-dark-general-text: #f6f6f6;
+  --kr-general-font: pt sans;
+  --kr-general-font-size: 14px;
+  --kr-title-font: noto sans;
+  --kr-title-font-size: 20px;
+  --kr-document-font: pt sans;
+  --kr-document-font-size: pt sans;
+  --kr-mono-font: dejavu sans mono book;
+  --kr-mono-font-size: 14px;
+  --kr-padding: 4px;
+  --kr-margin: 4px;
+  --kr-border-radius: 4px;
+  --kr-trans-timing: cubic-bezier(0, 0, 0, 1.18);
+  --kr-trans-timing-more: cubic-bezier(0, 0, 0, 1.6);
+  --kr-app-color: var(--kr-vibrant);
+  --kr-app-color-dark: var(--kr-dark-vibrant);
+  --kr-top-area-width: 0;
+}
+
+html {
+  overflow: auto;
+}
+
+body.kr-ui-style {
+  cursor: default;
+  margin: 0;
+  font-family: var(--kr-general-font);
+  font-size: var(--kr-general-font-size);
+  color: var(--kr-general-text);
+}
+
+.kr-dark body.kr-ui-style {
+  color: var(--kr-dark-general-text);
+}
+
+.kr-ui-style * {
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+.kr-no-animation {
+  scroll-behavior: auto !important;
+}
+
+p,
+textarea,
+input {
+  user-select: text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--kr-title-font);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+samp {
+  font-family: var(--kr-font-mono);
+  font-size: var(--kr-font-mono-size);
+}
+
+.no-trans {
+  transition: none !important;
+}
+
+.no-trans .placeholder {
+  pointer-events: all;
+}
+
+.ph-all .placeholder,
+.placeholder.ph-all {
+  pointer-events: all;
+}
+
+.ph-none .placeholder,
+.placeholder.ph-none {
+  pointer-events: none;
+}
+
+.kr-gtc4 {
+  grid-template-columns: auto auto auto auto;
+}
+
+.kr-gtc5 {
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.kr-gtc6 {
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.kr-gtc7 {
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+.kr-gtc8 {
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+
+.kr-gtc9 {
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+
+.kr-gtc10 {
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+}
+
+.kr-gcs2 {
+  grid-column: span 2;
+}
+
+.kr-gcs3 {
+  grid-column: span 3;
+}
+
+.kr-gcs4 {
+  grid-column: span 4;
+}
+
+.kr-gcs5 {
+  grid-column: span 5;
+}
+
+.kr-gcs6 {
+  grid-column: span 6;
+}
+
+.kr-gcs7 {
+  grid-column: span 7;
+}
+
+.kr-gcs8 {
+  grid-column: span 8;
+}
+
+.kr-gcs9 {
+  grid-column: span 9;
+}
+
+.kr-gcs10 {
+  grid-column: span 10;
+}

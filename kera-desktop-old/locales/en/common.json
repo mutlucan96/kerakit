@@ -1,0 +1,95 @@
+{       
+	"ok": "OK",
+	"cancel": "Cancel",
+	"dontsave": "Don't Save",
+	"yes": "Yes",
+	"no": "no",
+	"dontshowagain": "Don't show again.",
+	"add": "Add",
+	"remove": "Remove",
+	"yousure": "Are you sure?",
+	"undo": "Undo",
+	"redo": "Redo",
+	"search": "Search",
+	"find": "Find",
+	"cut": "Cut",
+	"copy": "Copy",
+	"paste": "Paste",
+	"restart": "Restart",
+	"continue": "Continue",
+	"top": "Top",
+	"bottom": "Bottom",
+	"left": "Left",
+	"right": "Right",
+	"top-left": "Top left",
+	"top-right": "Top right",
+	"bottom-left": "Bottom left",
+	"bottom-right": "Bottom right",
+	"middle": "Middle",
+	"app-info": "App info",
+	"share": "Share",
+	"help": "Help",
+	"feedback": "Feedback",
+	"menubar": {
+		"new": "New",
+		"open": "Open",
+		"recent": "Recent",
+		"save": "Save",
+		"saveas": "Save As...",
+		"print": "Print",
+		"page": "Page",
+		"properties": "Properties",
+		"quit": "Quit",
+		"file": "File",
+		"edit": "Edit",
+		"view": "View",
+		"window": "Window",
+		"help": "Help",
+		"about": "About"
+	},
+
+	"window": {
+		"close": "Close",
+		"maximize": "Maximize",
+		"unmaximize": "Unmaximize",
+		"minimize": "Minimize",
+		"always-top": "On top",
+		"every-desktop": "Each desktop",
+		"split": "Split"
+	},
+
+	"browser": {
+		"back": "Back",
+		"forward": "Forward",
+		"reload": "Reload",
+		"exitFullscreen": "Press ESC to exit fullscreen",
+		"showCursor": "Press ESC to show your cursor"
+	},
+
+	"document": {
+		"find": "Find",
+		"print": "Print",
+		"zoom": "Zoom",
+		"zoom-in": "Zoom in",
+		"zoom-out": "Zoom out",
+		"zoom-reset": "Reset"
+	},
+
+	"permission": {
+		"allow": "Allow",
+		"deny": "Deny",
+		"media": "{{host}} wants to use your camera and microphone",
+		"geolocation": "{{host}} wants to know your location"
+	},
+
+	"errors": {
+		"error": "Error",
+		"warning": "Warning",
+		"errorColon": "Error: ",
+		"unknown": "Unknown Error"
+	},
+
+	"text": {
+		"clear": "Clear"
+	}
+}

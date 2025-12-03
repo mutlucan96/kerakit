@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head kr-modules="window">
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<link href="style.css" rel="stylesheet"/>
+	<title>Weather</title>
+</head>
+<body class="kr-ui-style">
+<div class="kr-w-container">
+	<div class="kr-w kr-w-inapp">
+		<img class="kr-w-icon" src="icon.svg">
+		<h1 class="kr-w-title">Weather</h1>
+		<div class="kr-w-buttons">
+			<form id="search-form" name="search">
+				<input aria-label="Search" id="search" placeholder="City" type="search"/>
+			</form>
+			<div class="kr-wb" id="search-button">
+				<span class="mdi mdi-magnify"></span>
+			</div>
+			<div class="kr-wb" id="setting-button">
+				<span class="mdi mdi-cog-outline"></span>
+			</div>
+			<div class="kr-wb kr-wb-minimize" id="kr-w-minimize">
+				<span class="mdi mdi-minus"></span>
+			</div>
+			<div class="kr-wb kr-wb-maximize" id="kr-w-maximize">
+				<span class="mdi mdi-square-outline"></span>
+			</div>
+			<div class="kr-wb kr-wb-close" id="kr-w-close">
+				<span class="mdi mdi-close"></span>
+			</div>
+		</div>
+	</div>
+	<div class="kr-content">
+		<fieldset id="current">
+			<div id="primary">
+				<div id="temp-wrapper">
+					<p id="temp"></p>
+					<div id="min-max">
+						<p>
+							<span class="mdi mdi-arrow-up"></span>
+							<span id="tempMax"></span>
+						</p>
+						<p>
+							<span class="mdi mdi-arrow-down"></span>
+							<span id="tempMin"></span>
+						</p>
+					</div>
+				</div>
+				<div id="condition-wrapper">
+					<img id="current-icon">
+				</div>
+			</div>
+
+			<div id="other">
+				<div>
+					<img src="icons/humidity.svg">
+					<p id="humidity"></p>
+				</div>
+				<div>
+					<img id="wind-sock">
+					<span class="mdi mdi-arrow-up" id="wind-direction"></span>
+					<p id="wind"></p>
+				</div>
+				<div>
+					<img src="icons/smoke-particles.svg">
+					<p id="aqi"></p>
+				</div>
+				<div id="uv">
+					<img id="uvi">
+					<p>UVI</p>
+				</div>
+				<div>
+					<img src="icons/sunrise.svg">
+					<p id="sunrise"></p>
+				</div>
+				<div>
+					<img src="icons/sunset.svg">
+					<p id="sunset"></p>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset id="daily-weather">
+		</fieldset>
+		<fieldset id="hourly-weather-f">
+			<div id="hourly-weather">
+
+			</div>
+		</fieldset>
+	</div>
+</div>
+<script defer src="../../api/kerapi.js" type="text/javascript"></script>
+<script src="app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!--suppress HtmlRequiredLangAttribute -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="test.css">
+  <title></title>
+</head>
+<body style="padding: 2px" class="kr-ui-style" kr-modules="i18next, i18nextXHRBackend, loc-i18next, ui">
+    <h2 style="margin: 3px">Panel App Icon API</h2>
+    <fieldset>
+      <h3 style="margin: 3px">Icon</h3>
+      <label class="kr-checkbox">
+        <input id="hide-icon" type="checkbox">
+        <span>Hide default icon</span>
+      </label>
+      <label for="icon-change"></label><input id="icon-change" placeholder="Icon (mdi-...)" style="width: 100%"
+                                              type="text">
+      <label for="background-color"></label><input id="background-color" placeholder="Background Color (red, #FFFFF...)" style="width: 100%"
+                                                   type="text">
+    </fieldset>
+    <fieldset>
+      <h3 style="margin: 3px">Text</h3>
+      <label for="text-id"></label><input type="text" id="text-id" style="width: 100%" placeholder="ID">
+      <label for="text-text"></label><input type="text" id="text-text" style="width: 100%" placeholder="Text">
+      Top: <label for="text-top"></label><input id="text-top" type="text" value="0"> <br>
+      Left: <label for="text-left"></label><input id="text-left" type="text" value="0"><br>
+      Height: <label for="text-height"></label><input id="text-height" type="text" value="100%">
+      <br>
+      Width: <label for="text-width"></label><input id="text-width" type="text" value="100%"> <br>
+      Text Color: <label for="text-color"></label><input id="text-color" placeholder="Default: system text color"
+                                                         type="text"> <br>
+      Text Size: <label for="text-size"></label><input id="text-size" placeholder="Default: system text size"
+                                                       type="text"> <br>
+      Box Color: <label for="text-box-color"></label><input id="text-box-color" placeholder="Default: transparent"
+                                                            type="text"><br>
+      <button id="text-add" style="float: right">Add</button>
+      <button id="text-remove" style="float: right">Remove</button>
+    </fieldset>
+    <fieldset>
+        <h3 style="margin: 3px">Image</h3>
+      <label for="image-id"></label><input type="text" id="image-id" style="width: 100%" placeholder="ID">
+        Top: <label for="image-top"></label><input type="number" id="image-top" min="0" max="100" value="0">% <br>
+        Left: <label for="image-left"></label><input type="number" id="image-left" min="0" max="100" value="0">% <br>
+        Height: <label for="image-height"></label><input type="number" id="image-height" min="0" max="100" value="50">% <br>
+        Width: <label for="image-width"></label><input type="number" id="image-width" min="0" max="100" value="50">% <br>
+        <button id="image-add" style="float: right">Add</button>
+        <button id="image-remove" style="float: right">Remove</button>
+    </fieldset>
+    <script defer src="../../api/kerapi.js" type="text/javascript"></script>
+    <script src="testpanel.js" type="module" charset="utf-8"></script>
+</body>
+</html>

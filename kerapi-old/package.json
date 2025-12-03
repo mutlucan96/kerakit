@@ -1,0 +1,25 @@
+{
+  "name": "kerapi",
+  "version": "1.0.0",
+  "description": "Integrations for Kera compatible apps and Kera Desktop itself.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/kerahq/kerapi.git"
+  },
+  "author": "Mutlu Can YILMAZ",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://gitlab.com/kerahq/kerapi/issues"
+  },
+  "homepage": "https://gitlab.com/kerahq/kerapi#readme",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-google": "^0.14.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}

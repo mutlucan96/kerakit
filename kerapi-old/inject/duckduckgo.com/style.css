@@ -1,0 +1,19 @@
+body, html, .r-15ysp7h {
+  background: transparent !important;
+}
+
+.header--aside {
+  margin-top: 0 !important;
+}
+
+.header__label, .header__button--menu {
+  color: #6f5656 !important;
+}
+
+.header-wrap {
+  background-color: transparent !important;
+}
+
+.content-wrap {
+  background-color: #fff;
+}

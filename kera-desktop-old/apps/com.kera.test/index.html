@@ -1,0 +1,383 @@
+<!--suppress ALL, HtmlRequiredLangAttribute -->
+<html>
+<head kr-modules="window">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <title></title>
+</head>
+<body class="kr-ui-style">
+    <div class="kr-w-container">
+        <div class="kr-w kr-w-inapp">
+            <img src="icon.svg" class="kr-w-icon">
+            <h1 class="kr-w-title">UI Test</h1>
+            <div class="kr-appmenus">
+                <div id="file" class="kr-appmenu-item" kr-target="file-menu">
+                    <span class="mdi mdi-file"></span>
+                </div> 
+                <div id="edit" class="kr-appmenu-item" kr-target="edit-menu">
+                    <span class="mdi mdi-pencil"></span>
+                </div>
+                <div id="view" class="kr-appmenu-item" kr-target="view-menu">
+                    <span class="mdi mdi-eye"></span>
+                </div>
+                <div id="help" class="kr-appmenu-item" kr-target="help-menu">
+                    <span class="mdi mdi-help"></span>
+                </div>
+            </div>
+            <div class="kr-w-buttons">
+                <div id="kr-w-minimize" class="kr-wb kr-wb-minimize">
+                    <span class="mdi mdi-minus"></span>
+                </div>
+                <div id="kr-w-maximize" class="kr-wb kr-wb-maximize">
+                    <span class="mdi mdi-square-outline"></span>
+                </div>
+                <div id="kr-w-close" class="kr-wb kr-wb-close">
+                    <span class="mdi mdi-close"></span>
+                </div>
+            </div>
+        </div>
+        <div class="kr-content">
+        <div class="kr-tabs kr-tabs-h">
+            <div class="kr-tab kr-selected" kr-target="ui">UI Element</div>
+            <div class="kr-tab" kr-target="api">API</div>
+            <div class="kr-tab" kr-target="useless">Useless Tab</div>
+            <div class="kr-tab" kr-target="useful">Useful Tab</div>
+            <div class="kr-tab kr-disabled">Disabled</div>
+        </div>
+        <div class="kr-tab-contents">
+            <div class="kr-tab-content kr-selected" id="ui">
+                <div class="kr-switch-container">
+                    <label for="switch" class="kr-switch-label">Switch</label>
+                    <input type="checkbox" class="kr-switch" id="switch">
+                </div>
+                <div id="buttons">
+                    <button>Button</button>
+                    <button><span class="mdi mdi-cog"></span></button>
+                    <button class="kr-button-text">Text Button</button>
+                    <div class="kr-button-group">
+                        <button>Button</button>
+                        <button>Another one</button>
+                        <button>Similar one</button>
+                        <button disabled>Disabled</button>
+                    </div>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Checkboxes and Radios</legend>
+                        <div>
+                            <label class="kr-checkbox">
+                                <input type="checkbox">
+                                <span>Check Me</span>
+                            </label>
+                            <label class="kr-checkbox">
+                                <input type="checkbox" disabled>
+                                <span>Disabled</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="kr-radio">
+                                <input type="radio" name="radio">
+                                <span>One</span>
+                            </label>
+                            <label class="kr-radio">
+                                <input type="radio" name="radio" >
+                                <span>Two</span>
+                            </label>
+                            <label class="kr-radio">
+                                <input type="radio" name="radio" >
+                                <span>Tree</span>
+                            </label>
+                            <label class="kr-radio">
+                                <input type="radio" name="radio" disabled>
+                                <span>Disabled</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div>
+                  <label>
+                    <input type="date">
+                  </label>
+                  <label>
+                    <input type="time">
+                  </label>
+                  <label>
+                    <input type="datetime-local">
+                  </label>
+                </div>
+
+                <div>
+                    <input type="file">
+                  <label>
+                    <input type="range">
+                  </label>
+                </div>
+
+                <div>
+                  <label>
+                    <input type="text">
+                  </label>
+                </div>
+
+                <div>
+                    <progress class="kr-minimal-progress" style="width: 100%" id="progress" max="100" value="70"></progress>
+                </div>
+
+                <div>
+                    <progress style="width: 100%" id="progress2" max="100" value="70"></progress>
+                </div>
+                <div>
+                    <label for="dino-select"></label><select id="dino-select">
+                        <optgroup label="Theropods">
+                            <option>Tyrannosaurus</option>
+                            <option>Velociraptor</option>
+                            <option>Deinonychus</option>
+                        </optgroup>
+                        <optgroup label="Sauropods">
+                            <option>Diplodocus</option>
+                            <option>Saltasaurus</option>
+                            <option>Apatosaurus</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label>
+<textarea>It was a dark and stormy night...
+</textarea>
+                    </label>
+                </div>
+            </div>
+
+            <div class="kr-tab-content" id="api">
+                <fieldset>
+                    <legend>Window</legend>
+                    <button id="link-inapp">Open link of this app</button>
+                    <button id="link-google">Open Google</button>
+                    <button id="link-mandala">Open Mandala</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Dialog</legend>
+                    <button id="alert">Alert</button>
+                    <button id="confirm">Confirm</button>
+                    <button id="promt">Promt</button>
+                    <button id="html-dialog" class="kr-dialog-trigger" kr-target="dialog">HTML Dialog</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Taskbar</legend>
+                    <button id="taskbar-attention">Needs attention</button>
+                    <button id="taskbar-badge">Simple Badge</button>
+                    <button id="taskbar-badge-1">Badge with value 1</button>
+                    <button id="taskbar-badge-remove">Remove badge</button>
+                    <button id="taskbar-progress30">Show progress (30%)</button>
+                    <button id="taskbar-progress70">Show progress (70%)</button>
+                    <button id="taskbar-progress0">Remove progress</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Toast Notification</legend>
+                  <label for="toast-id"></label><input type="text" id="toast-id" style="width: 100%" placeholder="Notification ID (only needed to update or remove)">
+                  <label for="toast-text"></label><input type="text" id="toast-text" style="width: 100%" placeholder="Notification text">
+
+                    <label class="kr-checkbox">
+                        <input id="toast-dismiss" type="checkbox" checked>
+                        <span>Dismissable</span>
+                    </label>
+                    <label class="kr-checkbox">
+                        <input id="toast-persistent" type="checkbox">
+                        <span>Persistent</span>
+                    </label>
+                    <label class="kr-checkbox">
+                        <input id="toast-buttons" type="checkbox">
+                        <span>Show buttons</span>
+                    </label>
+                    <br>
+                    <button id="toast-send" style="float: right">Send</button>
+                    <button id="toast-remove" style="float: right">Remove</button>
+                </fieldset>
+                <fieldset>
+                    <legend>System Notification</legend>
+                  <label for="system-id"></label><input type="text" id="system-id" style="width: 100%" placeholder="Notification ID (only needed to update or remove)">
+                  <label for="system-title"></label><input type="text" id="system-title" style="width: 100%" placeholder="Notification title">
+                  <label for="system-text"></label><input type="text" id="system-text" style="width: 100%" placeholder="Notification text">
+
+                    <label class="kr-checkbox">
+                        <input id="system-dismiss" type="checkbox" checked>
+                        <span>Dismissable</span>
+                    </label>
+                    <label class="kr-checkbox">
+                        <input id="system-persistent" type="checkbox">
+                        <span>Persistent</span>
+                    </label>
+                    <label class="kr-checkbox">
+                        <input id="system-buttons" type="checkbox">
+                        <span>Show buttons</span>
+                    </label>
+                    <br>
+                    <label class="kr-radio">
+                        <input type="radio" name="system-icon" value="default" checked>
+                        <span>Show app's default icon</span>
+                    </label>
+                    <label class="kr-radio">
+                        <input type="radio" name="system-icon" value="image">
+                        <span>Show custom image</span>
+                    </label>
+                    <br>
+                    <button id="system-send" style="float: right">Send</button>
+                    <button id="system-remove" style="float: right">Remove</button>
+                </fieldset>
+                <fieldset id="example-buttons">
+                    <legend>Example notifications</legend>
+                    <button class="kr-button-text" id="notify-music">
+                        <span>Music Player</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                    <button class="kr-button-text" id="notify-spotify">
+                        <span>Spotify</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                    <button class="kr-button-text" id="notify-message">
+                        <span>Message</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                    <button class="kr-button-text" id="notify-call">
+                        <span>Call</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                    <button class="kr-button-text" id="notify-reminder">
+                        <span>Reminder</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                    <button class="kr-button-text" id="notify-duolingo">
+                        <span>Duolingo</span>
+                        <span class="mdi mdi-send"></span>
+                    </button>
+                </fieldset>
+            </div>
+            <div class="kr-tab-content" id="useless">
+                Nothing useful here.
+            </div>
+            <div class="kr-tab-content" id="useful">
+                <h1>Just kidding!</h1>
+                <p>Nothing useful here.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="kr-dialogs">
+        <div class="kr-dialog" id="dialog">
+            <h1>Dialog</h1>
+            <p>That's a dialog. Is it cool?</p>
+            <div class="kr-dialog-buttons">
+                <button id="cool">Cool</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="kr-menus">
+        <ul id="file-menu" class="kr-menu">
+            <li class="kr-menu-item kr-gcs2">
+                <span class="mdi mdi-plus"></span>
+                <p>New</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-file"></span>
+                <p>Open</p>
+            </li>
+            <li class="kr-menu-item kr-submenu-trigger">
+                <span class="mdi mdi-history"></span>
+                <p>Recent</p>
+                <ul class="kr-menu kr-submenu">
+                    <li class="kr-menu-item kr-menu-item-classic">
+                        <p>Lorem impsum</p>
+                    </li>
+                    <li class="kr-menu-item kr-menu-item-classic">
+                        <p>Dolor sit amet</p>
+                    </li>
+                    <li class="kr-menu-item kr-menu-item-classic">
+                        <p>Consectetur adipiscing elit</p>
+                    </li>
+                    <li class="kr-menu-item kr-menu-item-classic">
+                        <p>Sed</p>
+                    </li>
+                    <li class="kr-menu-item kr-menu-item-classic">
+                        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                    </li>
+                </ul>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-file-export"></span>
+                <p>Export</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-share-variant"></span>
+                <p>Share</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-printer"></span>
+                <p>Print</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-file-cog"></span>
+                <p>Properties</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-close"></span>
+                <p>Close</p>
+            </li>
+        </ul>
+        <ul id="edit-menu" class="kr-menu">
+            <li class="kr-menu-item">
+                <span class="mdi mdi-undo"></span>
+                <p>Undo</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-history"></span>
+                <p>History</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-redo"></span>
+                <p>Redo</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-content-cut"></span>
+                <p>Cut</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-content-copy"></span>
+                <p>Copy</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-content-paste"></span>
+                <p>Paste</p>
+            </li>
+            <li class="kr-menu-item kr-menu-item-classic">
+                <span class="mdi mdi-select-all"></span>
+                <p>Select All</p>
+            </li>
+            <li class="kr-menu-item kr-menu-item-classic">
+                <span class="mdi mdi-magnify"></span>
+                <p>Find and Replace</p>
+            </li>
+        </ul>
+        <ul id="view-menu" class="kr-menu">
+            <li class="kr-menu-item">
+                <span class="mdi mdi-fullscreen"></span>
+                <p>Full Screen</p>
+            </li>
+        </ul>
+        <ul id="help-menu" class="kr-menu">
+            <li class="kr-menu-item">
+                <span class="mdi mdi-help"></span>
+                <p>Help</p>
+            </li>
+            <li class="kr-menu-item">
+                <span class="mdi mdi-information"></span>
+                <p>About</p>
+            </li>
+        </ul>
+    </div>
+    <script defer src="../../api/kerapi.js" type="text/javascript"></script>
+    <script src="test.js" type="module" charset="utf-8"></script>
+</body>
+</html>

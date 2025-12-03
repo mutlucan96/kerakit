@@ -1,0 +1,15 @@
+{
+  "id": "com.kera.wallpaper",
+  "version": 0.1,
+  "name": "Wallpaper",
+  "description": "",
+  "type": "background",
+  "main": "index.html",
+  "settings": "settings.html",
+  "locales": {
+    "tr": {
+      "name": "Duvar Kağıdı",
+      "description": ""
+    }
+  }
+}

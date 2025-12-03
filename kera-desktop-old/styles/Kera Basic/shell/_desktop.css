@@ -1,0 +1,317 @@
+/**
+ * @license
+ * Copyright 2020 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+:root {
+  overflow: hidden;
+  background-color: inherit;
+
+  --kr-taskbar-icon-size: 48px;
+  --kr-favorites-icon-size: 42px;
+  --kr-hotspot-weight: 2px;
+  --kr-hotspot-margin: 1px;
+  --kr-panel-icon-size: 60px;
+  --kr-vibrant: #3ac5b3;
+  --kr-dark-vibrant: #193e6c;
+  --kr-shell-background: var(--kr-dark-vibrant);
+  --kr-shell-border: var(--kr-vibrant);
+  --kr-shell-text: rgb(255 255 255 / 90%);
+  --kr-panel-height: 427px;
+}
+
+body {
+  margin: 0;
+  cursor: default;
+  font-family: var(--kr-general-font);
+}
+
+webview {
+  height: 100%;
+  width: 100%;
+}
+
+#desktop,
+#background,
+#startup,
+#hotspots {
+  height: 100%;
+  width: 100%;
+  contain: strict;
+}
+
+* {
+  user-select: none;
+}
+
+p,
+textarea {
+  user-select: text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--kr-title-font);
+}
+
+.no-trans {
+  transition: none !important;
+}
+
+.no-trans .placeholder {
+  pointer-events: all;
+}
+
+.ph-all .placeholder,
+.placeholder.ph-all {
+  pointer-events: all;
+}
+
+.ph-none .placeholder,
+.placeholder.ph-none {
+  pointer-events: none;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#startup-text {
+  color: gray;
+  font-size: 10em;
+  letter-spacing: 0.2cm;
+  font-family: NanumBarunGothic, sans-serif;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#startup {
+  z-index: 99999;
+  background-color: black;
+  cursor: none;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+#startup.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#desktop {
+  position: fixed;
+}
+
+#search {
+  width: 100%;
+  height: 100%;
+  z-index: 6000;
+  background-color: rgb(0 0 0 / 40%);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.search #search {
+  opacity: 1;
+  visibility: visible;
+}
+
+#search-container {
+  max-width: 700px;
+  min-width: 350px;
+  width: 60vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  margin-top: 14px;
+}
+
+#search-container > * {
+  pointer-events: auto;
+}
+
+#searchbar {
+  display: flex;
+  align-items: flex-start;
+  background-color: white;
+  height: max-content;
+  border: solid 1px var(--kr-vibrant);
+  color: var(--kr-dark-vibrant);
+  margin-bottom: 14px;
+}
+
+.kr-dark #searchbar {
+  background-color: black;
+  border: solid 1px var(--kr-dark-vibrant);
+  color: var(--kr-vibrant);
+}
+
+#searchbar > .hidden {
+  visibility: hidden;
+}
+
+#searchbar > input {
+  border: none;
+  margin: 0;
+  padding: 8px;
+  font-size: large;
+  flex-grow: 1;
+  color: var(--kr-general-text);
+}
+
+.kr-dark #searchbar > input {
+  color: var(--kr-dark-general-text);
+}
+
+#searchbar > span {
+  font-size: 2em;
+  margin: auto auto auto 8px;
+}
+
+#searchbar > button {
+  margin: auto;
+  font-size: 28px;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#search-results,
+#search-suggestions {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--kr-general-background);
+  border: solid 1px var(--kr-dark-vibrant);
+  color: var(--kr-general-text);
+  overflow: auto;
+}
+
+#search-results.hidden,
+#search-suggestions.hidden {
+  display: none;
+}
+
+#search-suggestions > a,
+#search-results > a {
+  color: var(--kr-general-text);
+  display: flex;
+  align-items: flex-start;
+}
+
+.kr-dark #search-suggestions > a,
+.kr-dark #search-results > a {
+  color: var(--kr-dark-general-text);
+}
+
+.kr-dark #search-suggestions,
+.kr-dark #search-results {
+  background-color: var(--kr-dark-general-background);
+  color: var(--kr-dark-general-text);
+}
+
+#search-suggestions > a > *,
+#search-results > a > * {
+  pointer-events: none;
+}
+
+#search-container a:hover {
+  background-color: rgb(137 137 137 / 20%);
+}
+
+#search-container a.selected,
+#search-container a:active {
+  background-color: rgb(137 137 137 / 40%);
+}
+
+#search-suggestions > a > img,
+#search-results > a > img {
+  height: 2em;
+  width: 2em;
+  margin: auto 8px;
+}
+
+#search-suggestions > a > .mdi,
+#search-results > a > .mdi {
+  font-size: 2em;
+  margin: auto 8px;
+}
+
+#search-suggestions > a > p,
+#search-results > a > p {
+  flex-grow: 1;
+}
+
+#search .result {
+  margin: auto 8px;
+  font-weight: bold;
+}
+
+#search .result-buttons {
+  height: 100%;
+}
+
+#search .result-buttons a {
+  font-weight: bold;
+  pointer-events: auto;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 8px;
+}
+
+#search .result-buttons a > * {
+  pointer-events: none;
+}
+
+#search-suggestions > a > *,
+#search-results > a > * {
+  pointer-events: none;
+}
+
+#search .result-buttons a:hover {
+  background-color: rgb(137 137 137 / 40%);
+}
+
+#search .result-buttons a.selected,
+#search .result-buttons a:active {
+  background-color: rgb(137 137 137 / 80%);
+}

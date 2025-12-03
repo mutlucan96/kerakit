@@ -1,0 +1,25 @@
+section {
+  margin-top: 50px;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--kr-app-color-dark);
+  font-size: 30pt;
+  font-weight: normal;
+  font-family: var(--kr-general-font) !important;
+}
+
+p {
+  font-size: 13pt;
+}
+
+span {
+  font-size: 15pt;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 30px !important;
+}

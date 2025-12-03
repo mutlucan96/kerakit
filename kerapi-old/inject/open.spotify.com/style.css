@@ -1,0 +1,32 @@
+.kr-w-buttons {
+  line-height: 1 !important;
+}
+
+header {
+  padding: 6px 14px !important;
+  padding-inline-end: 14px !important;
+  height: 40px !important;
+}
+
+body header {
+  padding-right: 145px !important;
+}
+
+.kr-adapt header {
+  padding-right: calc(145px + var(--kr-top-area-width)) !important;
+}
+
+.kuwYvr {
+  min-block-size: 34px !important;
+  padding-block: 6px !important;
+}
+
+/* Install button */
+.Foyk_HJx16yh22JYmQ56 {
+  display: none;
+}
+
+/* list title on scroll */
+.qJOhHoRcFhHJpEQ2CwFT {
+  top: 40px !important;
+}

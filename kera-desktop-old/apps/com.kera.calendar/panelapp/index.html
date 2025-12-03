@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Calendar</title>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+  <div class="calendar">
+    <div class="month">
+      <i class="mdi mdi-arrow-left prev"></i>
+      <div class="date">
+        <h1></h1>
+        <p></p>
+      </div>
+      <i class="mdi mdi-arrow-right next"></i>
+    </div>
+    <div class="weekdays">
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+      <div>Sun</div>
+    </div>
+    <div class="days"></div>
+  </div>
+</div>
+<div class="more">
+  <p><span class="mdi mdi-plus"></span> New Event</p>
+  <p><strong>10:30</strong> Design Meeting</p>
+  <p><strong>13:00</strong> Train ride to Amsterdam</p>
+</div>
+
+<script defer src="../../../api/kerapi.js" type="text/javascript"></script>
+<script src="script.js" type="module"></script>
+</body>
+</html>

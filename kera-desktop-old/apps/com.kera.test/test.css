@@ -1,0 +1,26 @@
+.kr-content {
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.kr-tab-content {
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  padding: 4px;
+}
+
+#example-buttons button {
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+#example-buttons .mdi {
+  position: absolute;
+  right: 24px;
+  font-size: 18px;
+}

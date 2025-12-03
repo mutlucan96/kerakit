@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <title>Wallpaper</title>
+</head>
+<body>
+<div class="hidden" id="background_image"></div>
+<script type="text/javascript">
+  const backgroundImage = document.getElementById('background_image');
+  let appWindow;
+  let appOrigin;
+  let pid;
+  let focus = true;
+  let settings;
+
+  const onMessage = (e) => {
+    appWindow = e.source;
+    appOrigin = e.origin;
+
+    if (e.data.type === 'init') {
+      pid = e.data.pid;
+      messageReady();
+    } else if (e.data.responseOf === 'getSettings' || e.data.type === 'settingsUpdated') {
+        document.documentElement.style.setProperty('--kr-animation-duration',
+            e.data.data.style.animationDuration + 'ms');
+        settings = e.data.data.background;
+      switch (settings.type) {
+        case 'image':
+          let url;
+          try {
+            const urlH = new URL(settings.image.list[settings.image.selected]);
+            if (urlH) url = settings.image.list[settings.image.selected];
+          } catch (e) {
+            url = '../../' + settings.image.list[settings.image.selected];
+          }
+          let img = new Image();
+          img.src = url;
+          img.onload = () => {
+            backgroundImage.style.backgroundImage = `url("${url}")`;
+            if (!settings.blur_only_window) {
+              backgroundImage.style.setProperty('--blur', settings.blur + 'px');
+            } else if (!focus) {
+              backgroundImage.style.setProperty('--blur', settings.blur + 'px');
+            }
+            backgroundImage.style.setProperty('--brightness', settings.brightness);
+            backgroundImage.style.setProperty('--contrast', settings.contrast);
+
+            if (settings.image.fit === 'center-cropped') {
+              backgroundImage.style.backgroundSize = 'cover';
+              backgroundImage.style.backgroundPosition = 'center';
+              backgroundImage.style.backgroundRepeat = 'no-repeat';
+            } else if (settings.image.fit === 'tiled') {
+              backgroundImage.style.backgroundRepeat = 'repeat';
+            } else if (settings.image.fit === 'centered') {
+              backgroundImage.style.backgroundPosition = 'center';
+              backgroundImage.style.backgroundSize = 'contain';
+              backgroundImage.style.backgroundRepeat = 'no-repeat';
+            }
+
+
+            doSendMessage({recipient: 'kera', command: 'ready', pid: pid});
+            backgroundImage.classList.remove('hidden');
+          };
+          break;
+        default:
+          // statements_def
+          break;
+      }
+    } else if (e.data === 'desktopFocus') {
+      focus = true;
+      backgroundImage.style.setProperty('--blur', 0);
+    } else if (e.data === 'desktopBlur') {
+      focus = false;
+      backgroundImage.style.setProperty('--blur', settings.blur + 'px');
+    }
+  };
+
+  window.addEventListener('message', onMessage);
+
+  const messageReady = () => {
+    doSendMessage({recipient: 'kera', command: 'getSettings'});
+  };
+
+  const doSendMessage = (msg) => {
+    if (appWindow && appOrigin) {
+      appWindow.postMessage(msg, appOrigin);
+    }
+
+  };
+</script>
+</body>
+</html>
+

@@ -1,0 +1,275 @@
+/**
+ * @license
+ * Copyright 2022 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+#panels {
+    transition: top;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#left-panel, #right-panel {
+    transition: transform, width, height, top;
+    transition-duration: var(--kr-animation-duration);
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.18);
+    transform: translate(0);
+}
+
+#left-panel.hidden {
+    transition-timing-function: ease-out;
+}
+
+#right-panel.hidden {
+    transition-timing-function: ease-out;
+}
+
+#left-panel.show, #left-panel.full {
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.18);
+}
+
+#right-panel.show, #right-panel.full {
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.18);
+}
+
+.kr-panelapp {
+    transition: transform, opacity;
+    transition-duration: var(--kr-animation-duration);
+}
+
+.panel-content {
+    transition: width, height;
+}
+
+.panel-icon {
+    transition: box-shadow ease-out, width, height;
+    transition-duration: var(--kr-animation-duration);
+}
+
+.panel-icon .hidden {
+    transition: opacity;
+}
+
+.panel-icon > img {
+    transition: width, height, opacity;
+    transition-duration: var(--kr-animation-duration);
+}
+
+.hs-area {
+    transition: opacity;
+    transition-duration: var(--kr-animation-duration);
+}
+
+.hs-area .hidden {
+    transition: opacity;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#top-area {
+    transition: top ease-out, right, opacity;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#bottom-area {
+    transition: transform, opacity;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.18);
+    transition-duration: var(--kr-animation-duration);
+}
+
+#bottom-area.hidden {
+    transition: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#taskbar .hidden {
+    animation-name: taskbarHide;
+    animation-duration: var(--kr-animation-duration);
+    animation-timing-function: ease-in-out;
+}
+
+#new-desktop {
+    transition: transform;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#new-desktop.hidden {
+    transition: transform;
+    transition-duration: var(--kr-animation-duration);
+    transition-timing-function: ease-in-out;
+}
+
+#new-desktop:active {
+    transition-duration: unset;
+}
+
+.sorting #new-desktop {
+    transition-property: transform, width, border-color;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes taskbarShow {
+    0% {
+        animation-timing-function: ease-in-out;
+        transform: translateY(calc(var(--kr-taskbar-icon-size) + 20px));
+        margin-left: calc(var(--kr-taskbar-icon-size) - var(--kr-taskbar-icon-size) * 2);
+    }
+
+    30% {
+        transform: translateY(calc(var(--kr-taskbar-icon-size) + 20px));
+        margin-left: 0;
+    }
+}
+
+@keyframes taskbarHide {
+    0% {
+        transform: translateY(0);
+        margin-left: 3px;
+    }
+    70% {
+        transform: translateY(calc(var(--kr-taskbar-icon-size) + 20px));
+        margin-left: 3px;
+    }
+
+    100% {
+        transform: translateY(calc(var(--kr-taskbar-icon-size) + 20px));
+        margin-left: calc(var(--kr-taskbar-icon-size) - var(--kr-taskbar-icon-size) * 2 - 12px);
+    }
+}
+
+.taskbar-desktop {
+    transition: transform;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.6);
+    transition-duration: var(--kr-animation-duration);
+    animation-name: taskbarShow;
+    animation-duration: var(--kr-animation-duration);
+    animation-fill-mode: both;
+}
+
+.sorting .taskbar-desktop {
+    transition-property: transform, width, min-width, border-color;
+    transition-timing-function: ease-in-out;
+}
+
+.taskbar-item {
+    transition: transform;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.6);
+    transition-duration: var(--kr-animation-duration);
+    animation-name: taskbarShow;
+    animation-duration: var(--kr-animation-duration);
+    animation-timing-function: cubic-bezier(0, 0, 0, 1.18);
+}
+
+.taskbar-item.sort-left, .taskbar-item.sort-right {
+    transition-timing-function: ease-in-out;
+    transition-duration: calc(var(--kr-animation-duration) / 2);
+}
+
+.taskbar-item.closed {
+    transition: transform;
+    transition-timing-function: ease-out;
+    transition-duration: var(--kr-animation-duration);
+    animation-name: taskbarHide;
+    animation-duration: var(--kr-animation-duration);
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+.floating-taskbar-item.sortEnd {
+    transition: opacity;
+    transition-timing-function: ease-out;
+    transition-duration: var(--kr-animation-duration);
+    opacity: 0;
+}
+
+.taskbar-item::before {
+    transition: opacity;
+    transition-timing-function: ease-out;
+    transition-duration: var(--kr-animation-duration);
+}
+
+@keyframes notifyOpen {
+    0% {
+        transform: scale(.2);
+        margin-left: -30px;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes notifyRemove {
+    100% {
+        transform: scale(.2);
+        margin-left: -30px;
+        opacity: 0;
+    }
+}
+
+@keyframes notifyShow {
+    0% {
+        height: 28px;
+        width: 28px;
+    }
+    50% {
+        width: 250px;
+        height: 28px;
+    }
+}
+
+.notification {
+    animation-name: notifyOpen;
+    animation-duration: var(--kr-animation-duration);
+    animation-timing-function: ease;
+    transition: width, height;
+    transition-timing-function: ease;
+    transition-duration: calc(var(--kr-animation-duration) / 2);
+    transition-delay: calc(var(--kr-animation-duration) / 2), 0s;
+}
+
+.notification:hover {
+    transition-delay: calc(var(--kr-animation-duration) / 2), calc(var(--kr-animation-duration));
+}
+
+.notification > h2 {
+    will-change: top, margin-left;
+    transition: top, margin-left;
+    transition-timing-function: linear;
+    transition-duration: 0s;
+    transition-delay: calc(var(--kr-animation-duration) * 2);
+}
+
+.notification:hover > h2 {
+    transition-delay: var(--kr-animation-duration);
+}
+
+.notification.removed {
+    animation-name: notifyRemove;
+    animation-duration: var(--kr-animation-duration);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.notification.preview {
+    transition-delay: var(--kr-animation-duration);
+}

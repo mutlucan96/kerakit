@@ -1,0 +1,149 @@
+/**
+ * @license
+ * Copyright 2020 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/*noinspection CssUnresolvedCustomProperty*/
+#left-panel, #right-panel {
+}
+    
+#right-panel {
+    border-top-left-radius: var(--kr-border-radius);
+    border-bottom-left-radius: var(--kr-border-radius);
+}
+
+#left-panel {
+    border-top-right-radius: var(--kr-border-radius);
+    border-bottom-right-radius: var(--kr-border-radius);
+}
+
+.kr-panelapp {
+    background-color: transparent;
+}
+
+.kr-dark .kr-panelapp {
+    background-color: transparent;
+}
+
+#left-panel .panel-icons {
+    border-top-right-radius: calc(var(--kr-border-radius) - 2px);
+    border-bottom-right-radius: calc(var(--kr-border-radius) - 2px);
+}
+
+#right-panel .panel-icons {
+    border-top-left-radius: calc(var(--kr-border-radius) - 2px);
+    border-bottom-left-radius: calc(var(--kr-border-radius) - 2px);
+}
+
+.panel-icon {
+    box-shadow: inset 0 -20px 20px 3px rgba(0, 0, 0, .1);
+}
+
+#left-panel .panel-icon:active {
+    box-shadow: inset 0 -20px 20px 3px rgba(255, 255, 255, .1),
+    inset 100px 0 70px 1px rgba(255,255,255, .3);
+}
+
+#right-panel .panel-icon:active {
+    box-shadow: inset 0 -20px 20px 3px rgba(255, 255, 255, .1),
+    inset -100px 0 70px 1px rgba(255,255,255, .3);
+}
+
+#system-tray {
+    transition: transform;
+    transition-duration: var(--kr-animation-duration);
+    border-radius: var(--kr-border-radius);
+}
+
+.notification {
+    border-radius: var(--kr-border-radius);
+    will-change: width, height, visibility, opacity, transform;
+}
+
+.notification > h2 {
+    text-overflow: clip !important;
+    -webkit-mask-image: linear-gradient(to right, rgb(0 0 0 / 100%) 90%, rgb(0 0 0 / 0%));
+}
+
+#favorites {
+    border-top-left-radius: var(--kr-border-radius);
+    border-top-right-radius: var(--kr-border-radius);
+}
+
+.kr-favorite:first-child {
+    border-top-left-radius: var(--kr-border-radius);
+}
+
+.kr-favorite:last-child {
+    border-top-right-radius: var(--kr-border-radius);
+}
+
+.kr-favorite > img {
+    transition: width, height;
+    transition-duration: var(--kr-animation-duration);
+}
+
+
+.taskbar-desktop {
+    border-top-left-radius: var(--kr-border-radius);
+    border-top-right-radius: var(--kr-border-radius);
+}
+
+
+/*noinspection CssUnresolvedCustomProperty*/
+.taskbar-item {
+    border-top: var(--kr-card-top-border);
+    border-top-left-radius: var(--kr-border-radius);
+    border-top-right-radius: var(--kr-border-radius);
+    border: rgba(100,100,100,.5) solid 1px;
+}
+
+.taskbar-item::after {
+    border-radius: var(--kr-border-radius);
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+.taskbar-item::before {
+    box-shadow: 0 0 15px 2px red;
+}
+
+.taskbar-item > img {
+    transition: width, height;
+    transition-duration: var(--kr-animation-duration);
+}
+
+/*noinspection ALL*/
+.floating-taskbar-item {
+    border-top: var(--kr-card-top-border);
+    border-top-left-radius: var(--kr-border-radius);
+    border-top-right-radius: var(--kr-border-radius);
+    box-shadow: 0 0 3px rgba(0,0,0,0.7);
+}
+
+.floating-taskbar-item > img {
+    transition: width, height;
+    transition-duration: var(--kr-animation-duration);
+}
+
+#new-desktop {
+    border-top-left-radius: var(--kr-border-radius);
+    border-top-right-radius: var(--kr-border-radius);
+}

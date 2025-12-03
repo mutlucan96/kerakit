@@ -1,0 +1,117 @@
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(66 107 255);
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#calculator {
+  width: 100%;
+  max-width: 500px;
+}
+
+#display {
+  width: 100%;
+  min-height: 6rem;
+  overflow-wrap: break-word;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cal-pad {
+  height: calc(100vh - 100px);
+  max-height: 600px;
+  margin: 2px;
+}
+
+.row-con {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+}
+
+.row-con > button {
+  font-size: 1.4rem !important;
+  margin: 2px !important;
+}
+
+.row-con button.dark {
+  background-color: #e1e1e1;
+  font-size: 1.8rem !important;
+}
+
+.kr-dark .row-con button.dark {
+  background-color: #2a2a2a;
+}
+
+.row-con button.item-del {
+  font-size: 1.4rem !important;
+}
+
+.row-con button.item-eq {
+  background-color: #efb27b;
+  font-size: 1.8rem !important;
+  font-weight: bolder;
+  grid-area: 4/4/6/4;
+}
+
+.kr-dark .row-con button.item-eq {
+  background-color: #422b17;
+}
+
+span.type {
+  font-size: 3rem;
+  position: absolute;
+  right: 5px;
+  top: 30px;
+  transition: all 0.2s;
+}
+
+span.type.active {
+  top: 6px;
+  font-size: 4rem;
+}
+
+span.result {
+  font-size: 1.4rem;
+  display: block;
+}
+
+.row-con > button.itemD, .row-con > button.itemX {
+  font-size: 0 !important;
+}
+
+.row-con > button.itemD::after {
+  content: '÷';
+  font-size: 1.8rem;
+}
+
+.row-con > button.itemX::after {
+  content: '×';
+  font-size: 1.8rem;
+}
+
+.row-con > button.itemAC {
+  background-color: rgb(244 170 170) !important;
+}
+
+.kr-dark .row-con > button.itemAC {
+  background-color: rgb(61 28 28) !important;
+}

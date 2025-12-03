@@ -1,0 +1,139 @@
+/**
+ * @license
+ * Copyright 2020 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/*noinspection CssUnresolvedCustomProperty*/
+.kr-app {
+  background:
+    linear-gradient(
+      var(--kr-app-color) -200px,
+      rgb(250 250 250 / 75%) 150px
+    );
+  border-radius: var(--kr-border-radius);
+  backdrop-filter: blur(var(--kr-blur));
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.kr-dark .kr-app {
+  background:
+    linear-gradient(
+      var(--kr-app-color-dark) -200px,
+      rgb(35 35 35 / 85%) 150px
+    );
+  border-radius: var(--kr-border-radius);
+  backdrop-filter: blur(var(--kr-blur));
+}
+
+.kr-app.maximized {
+  background:
+    linear-gradient(
+      var(--kr-app-color) -200px,
+      rgb(250 250 250 / 100%) 150px
+    );
+}
+
+.kr-dark .kr-app.maximized {
+  background:
+    linear-gradient(
+      var(--kr-app-color-dark) -200px,
+      rgb(30 30 30 / 100%) 150px
+    );
+}
+
+.kr-app.kr-solid {
+  background: var(--kr-app-color);
+}
+
+.kr-app.blurred {
+  --scale: 0.96;
+  backdrop-filter: none;
+}
+
+.kr-app::before {
+  border-radius: var(--kr-border-radius);
+  box-shadow: var(--kr-window-shadow);
+}
+
+.kr-app::after {
+  border-radius: var(--kr-border-radius);
+  box-shadow: var(--kr-window-shadow-blur);
+}
+
+.kr-app.split {
+  background:
+    linear-gradient(
+      var(--kr-app-color) -200px,
+      rgb(250 250 250 / 100%) 200px
+    );
+  border-radius: 0;
+}
+
+.kr-dark .kr-app.split {
+  background:
+    linear-gradient(
+      var(--kr-app-color-dark) -200px,
+      rgb(30 30 30 / 100%) 150px
+    );
+}
+
+.kr-w-container {
+  border-radius: var(--kr-border-radius);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.dialog .placeholder {
+  backdrop-filter: blur(var(--kr-blur));
+  border-radius: var(--kr-border-radius);
+}
+
+.kr-app webview {
+  border-radius: var(--kr-border-radius);
+}
+
+.kr-wb {
+  border-radius: var(--kr-border-radius);
+}
+
+#move-indicator {
+  border-radius: var(--kr-border-radius);
+}
+
+.kr-w-dialog {
+  background: linear-gradient(rgb(250 250 250 / 85%) 40px, var(--kr-app-color) 400px);
+  box-shadow: var(--kr-window-shadow);
+}
+
+.kr-dark .kr-w-dialog {
+  background: linear-gradient(
+      var(--kr-app-color-dark) -200px,
+      rgb(30 30 30 / 70%) 150px
+  );
+}
+
+.kr-w-nav {
+  border-radius: var(--kr-border-radius);
+}
+
+.kr-w-title, .kr-w-tab-title, .kr-w-tab-address {
+  text-overflow: clip !important;
+  -webkit-mask-image: linear-gradient(to right, rgb(0 0 0 / 100%) 90%, rgb(0 0 0 / 0%));
+}

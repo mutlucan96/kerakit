@@ -1,0 +1,169 @@
+/**
+ * @license
+ * Copyright 2020 Mutlu Can YILMAZ
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+.kr-menu {
+  --menu-color-opacity: 0.15;
+
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: fixed;
+  background-color: white;
+  padding: 0;
+  z-index: 10000;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: auto;
+  border: solid 1px dimgray;
+}
+
+.kr-menu:has(li:nth-child(4):last-child) {
+  grid-template-columns: auto auto;
+}
+
+.kr-dark .kr-menu {
+  background-color: black;
+}
+
+.kr-menu.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.kr-menu::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+.kr-menu.blur::after {
+  opacity: 0.3;
+  visibility: visible;
+}
+
+.kr-menu-item {
+  pointer-events: all !important;
+  position: relative;
+  display: flex;
+  min-width: 90px;
+  min-height: 90px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2px;
+  color: var(--kr-general-text);
+}
+
+.kr-dark .kr-menu-item {
+  color: var(--kr-dark-general-text);
+}
+
+.kr-menu-item span,
+.kr-menu-item p,
+.kr-menu-item ul {
+  pointer-events: none;
+}
+
+.kr-menu-item span {
+  font-size: 42px;
+  display: flex;
+}
+
+.kr-menu-item img {
+  width: 42px;
+  height: 42px;
+}
+
+.kr-menu-item p {
+  margin: 5px 0 0;
+  text-align: center;
+}
+
+.kr-menu-item > span {
+  opacity: 0.8;
+}
+
+.kr-menu-item:hover > span {
+  opacity: 1;
+}
+
+.kr-menu-item.kr-disabled {
+  color: gray !important;
+  background-color: lightgray !important;
+}
+
+.kr-dark .kr-menu-item.kr-disabled {
+  color: #525252 !important;
+  background-color: black !important;
+}
+
+.kr-menu-item:not(.kr-disabled):hover,
+.kr-menu-item:not(.kr-disabled):focus {
+  --menu-color-opacity: 0.3;
+}
+
+.kr-menu-item input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.7;
+}
+
+.kr-menu-item label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.kr-menu-item-classic {
+  min-height: 42px;
+  padding-left: 8px;
+  padding-right: 6px;
+  grid-column: 1 / -1;
+  justify-content: left;
+  flex-direction: row;
+}
+
+.kr-menu-item-classic span {
+  font-size: 24px;
+}
+
+.kr-menu-item-classic p {
+  margin: 0 6px 6px;
+}
+
+.kr-menu-item:not(.kr-disabled):active {
+  box-shadow: inset 0 0 0 2px grey;
+}
+
+.kr-menu-item.disable {
+  background-color: rgb(150 150 150 / var(--menu-color-opacity)) !important;
+  color: gray;
+  opacity: 0.5;
+}
