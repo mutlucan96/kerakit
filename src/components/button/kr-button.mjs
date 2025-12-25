@@ -1,38 +1,22 @@
 /**
  * @file A simple Kr button component.
  * @module KeraKit/Components/Button
+ * @copyright (C) 2025 Mutlu Can Yilmaz
  * @license MIT
- * @copyright 2025 Mutlu Can Yilmaz
  */
 
 import { LitElement, html, css } from "lit";
+import { subscribeToState } from "../../core/state/index.mjs";
 
 /**
  * @element kr-button
- * @fires click - Dispatched when the button is clicked.
- * @slot - The default slot for the button's text or content.
- * @cssprop [--kr-button-background-color=#007bff] - Background color of the button.
- * @cssprop [--kr-button-text-color=white] - Text color of the button.
- * @cssprop [--kr-button-padding="0.5em 1em"] - Padding of the button.
+ * @fires click
+ * @slot - Default content
  */
-
 export class KrButton extends LitElement {
-  /**
-   * Defines the component's properties.
-   * @returns {Object} The properties object.
-   */
   static get properties() {
     return {
-      /**
-       * The type of the button.
-       * @type {'button' | 'submit' | 'reset'}
-       */
       type: { type: String },
-
-      /**
-       * Whether the button is disabled.
-       * @type {boolean}
-       */
       disabled: { type: Boolean, reflect: true },
     };
   }
@@ -75,9 +59,31 @@ export class KrButton extends LitElement {
 
   constructor() {
     super();
-    // Initialize properties with default values
     this.type = "button";
     this.disabled = false;
+    this._unsubscribe = null;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    // Subscribe to state changes
+    this._unsubscribe = subscribeToState(({ slice }) => {
+      if (slice === "theme") {
+        // Since we use CSS variables, the browser handles the visual update.
+        // But if we needed JS logic:
+        // console.log("Theme changed:", value.mode);
+        this.requestUpdate();
+      }
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    // Clean up subscription to prevent memory leaks
+    if (this._unsubscribe) {
+      this._unsubscribe();
+      this._unsubscribe = null;
+    }
   }
 
   render() {
@@ -92,4 +98,5 @@ export class KrButton extends LitElement {
     `;
   }
 }
+
 customElements.define("kr-button", KrButton);

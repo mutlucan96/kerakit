@@ -33,10 +33,19 @@ export default defineConfig([
           extensions: [".js", ".mjs", ".json"],
         },
       },
+      jsdoc: {
+        tagNamePreference: {
+          "element": "element",
+          "slot": "slot",
+          "fires": "fires"
+        }
+      }
     },
     rules: {
       "jsdoc/require-jsdoc": "warn",
       "jsdoc/require-property-description": "off",
+      "jsdoc/check-tag-names": ["warn", { "definedTags": ["element", "slot", "fires"] }],
+      "jsdoc/no-undefined-types": "off",
       "import/no-unresolved": [
         "error",
         { commonjs: true, amd: true, caseSensitive: false },

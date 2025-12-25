@@ -1,21 +1,25 @@
 /**
  * @file Main entry point for KeraKit's state management.
- * Orchestrates initialization and exports all public state getters and actions.
  * @module KeraKit/Core/State
+ * @copyright (C) 2025 Mutlu Can Yilmaz
  * @license MIT
- * @copyright 2025 Mutlu Can Yilmaz
  */
-import { initThemeState } from "@/core/state/theme.mjs";
-import { initSettingsState } from "@/core/state/settings.mjs";
+
+/**
+ * @import { KeraKitConfig } from '../../config.mjs'
+ */
+
+import { initThemeState } from "./theme.mjs";
+import { initSettingsState } from "./settings.mjs";
+
+/** @type {EventTarget} */
+const stateEvents = new EventTarget();
 
 let _isKeraStateFullyInitialized = false;
 
 /**
- * Initializes all KeraKit state modules with provided user configurations.
- * This should be called once when the KeraKit library is loaded/started.
- * @param {object} [userConfig] - An object containing user overrides for different state slices.
- * @param {object} [userConfig.theme] - User overrides for theme settings (see theme.mjs).
- * @param {object} [userConfig.settings] - User overrides for general settings (see settings.mjs).
+ * Initializes all KeraKit state modules.
+ * @param {KeraKitConfig} [userConfig]
  */
 export function initializeKeraState(userConfig = {}) {
   if (_isKeraStateFullyInitialized) {
@@ -27,6 +31,32 @@ export function initializeKeraState(userConfig = {}) {
   initSettingsState(userConfig.settings);
 
   _isKeraStateFullyInitialized = true;
+  dispatchStateChange("initialized", { ready: true });
 }
 
-export default { initializeKeraState };
+/**
+ * Dispatches a state change event.
+ * @param {string} slice - The part of the state that changed (e.g., 'theme').
+ * @param {object} value - The new value of that slice.
+ */
+export function dispatchStateChange(slice, value) {
+  stateEvents.dispatchEvent(
+    new CustomEvent("kera-state-change", {
+      detail: { slice, value },
+    }),
+  );
+}
+
+/**
+ * Subscribes to state changes.
+ * @param {function({slice: string, value: object}): void} callback - Function to call on change.
+ * @returns {function(): void} A function to unsubscribe.
+ */
+export function subscribeToState(callback) {
+  const handler = (e) => callback(e.detail);
+  stateEvents.addEventListener("kera-state-change", handler);
+  // Return a cleanup function
+  return () => stateEvents.removeEventListener("kera-state-change", handler);
+}
+
+export default { initializeKeraState, subscribeToState, dispatchStateChange };
